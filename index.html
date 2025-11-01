@@ -5,154 +5,1081 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="theme-color" content="#2f75b5">
 <title>برنامج إدارة الأسماء</title>
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;600;700;800&display=swap" rel="stylesheet">
-<style>:root{--blue-1:#0f62fe;--blue-2:#2f75b5;--dark-border:#1a1a2e;--input-border:#2d2d44}*{box-sizing:border-box;font-family:'Tajawal',sans-serif;-webkit-tap-highlight-color:transparent}body{background:radial-gradient(1400px 500px at 15% 10%,rgba(47,117,181,0.08),transparent),radial-gradient(1000px 400px at 85% 90%,rgba(15,98,254,0.05),transparent),linear-gradient(135deg,#e8f4fd 0%,#f0f8ff 100%);color:#0a2540;padding:24px;margin:0;min-height:100vh}.container{max-width:1200px;margin:0 auto;padding:32px;border-radius:20px;background:linear-gradient(180deg,rgba(255,255,255,0.95),rgba(255,255,255,0.85));box-shadow:0 12px 40px rgba(15,98,254,0.12);border:2px solid rgba(47,117,181,0.15)}header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-bottom:20px;border-bottom:2px solid rgba(47,117,181,0.1);margin-bottom:24px;flex-wrap:wrap}h1{margin:0;font-size:24px;font-weight:800;color:var(--blue-2);display:flex;align-items:center;gap:12px}.top-row{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:28px;padding:20px;background:linear-gradient(135deg,rgba(47,117,181,0.04),rgba(15,98,254,0.02));border-radius:16px;border:1px solid rgba(47,117,181,0.08)}.search-box{flex:1;display:flex;gap:10px;align-items:center;min-width:280px}.search-box input{flex:1;padding:14px 18px;border-radius:12px;border:2px solid var(--input-border);background:rgba(255,255,255,0.95);font-size:15px;font-weight:600;outline:none;transition:all 0.2s}.search-box input:focus{border-color:var(--blue-2);box-shadow:0 0 0 3px rgba(47,117,181,0.15)}.btn{display:inline-flex;align-items:center;gap:8px;justify-content:center;padding:12px 20px;border-radius:10px;border:none;background:linear-gradient(135deg,var(--blue-2),var(--blue-1));color:#fff;font-weight:700;font-size:14px;cursor:pointer;box-shadow:0 4px 16px rgba(15,98,254,0.25);transition:all .2s;touch-action:manipulation}.btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(15,98,254,0.35)}.btn:active{transform:translateY(0)}.btn.ghost{background:linear-gradient(135deg,rgba(255,255,255,0.95),rgba(250,250,250,0.9));color:var(--blue-2);border:2px solid var(--blue-2);box-shadow:0 2px 8px rgba(47,117,181,0.15)}.btn.ghost:hover{background:linear-gradient(135deg,rgba(47,117,181,0.08),rgba(47,117,181,0.04))}.form-section{background:linear-gradient(135deg,rgba(255,255,255,0.98),rgba(250,250,255,0.95));padding:28px;border-radius:16px;border:2px solid var(--dark-border);box-shadow:0 8px 24px rgba(26,26,46,0.08);margin-bottom:24px}.form-section-title{font-size:18px;font-weight:700;color:var(--dark-border);margin:0 0 20px 0;padding-bottom:12px;border-bottom:2px solid rgba(26,26,46,0.15);display:flex;align-items:center;gap:10px}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.grid-3{display:grid;grid-template-columns:2fr 1fr 1fr;gap:18px}label{display:block;font-size:14px;font-weight:700;margin-bottom:8px;color:var(--dark-border);text-transform:uppercase}.field{display:flex;flex-direction:column}input[type="text"],input[type="number"],textarea,select{padding:14px 16px;border-radius:10px;border:2px solid var(--dark-border);background:rgba(255,255,255,0.98);font-size:15px;font-weight:600;outline:none;transition:all 0.2s}select{cursor:pointer}input:focus,textarea:focus,select:focus{border-color:var(--blue-2);box-shadow:0 0 0 3px rgba(47,117,181,0.2)}textarea{min-height:85px;resize:vertical;font-family:'Tajawal',sans-serif}.actions{display:flex;gap:12px;flex-wrap:wrap;padding:20px;background:rgba(47,117,181,0.03);border-radius:12px;border:1px dashed rgba(47,117,181,0.2);margin-bottom:20px}.small{font-size:13px;color:#5b7388;font-weight:600}.note{margin-top:16px;color:#43627a;font-size:13px;padding:12px;background:rgba(47,117,181,0.04);border-radius:8px;border-right:4px solid var(--blue-2)}.count{font-weight:700;color:#fff;background:linear-gradient(135deg,var(--blue-2),var(--blue-1));padding:8px 16px;border-radius:8px;font-size:14px;box-shadow:0 2px 8px rgba(47,117,181,0.25)}.checklist-section{background:linear-gradient(135deg,rgba(255,255,255,0.98),rgba(250,250,255,0.95));padding:24px;border-radius:16px;border:2px solid var(--dark-border);box-shadow:0 8px 24px rgba(26,26,46,0.08);margin-top:20px}.textarea-check{width:100%;min-height:100px;padding:14px;border-radius:10px;border:2px solid var(--dark-border);background:rgba(255,255,255,0.98);font-family:'Tajawal',sans-serif;font-size:14px;font-weight:600;transition:all 0.2s}.textarea-check:focus{border-color:var(--blue-2);box-shadow:0 0 0 3px rgba(47,117,181,0.2);outline:none}.modal-backdrop{position:fixed;inset:0;background:rgba(2,6,23,0.6);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:20px;z-index:120}.modal{background:linear-gradient(180deg,rgba(255,255,255,0.98),rgba(255,255,255,0.95));border-radius:16px;max-width:950px;width:100%;padding:28px;box-shadow:0 30px 80px rgba(8,30,64,0.25);border:2px solid var(--dark-border);max-height:80vh;overflow-y:auto}.modal h3{margin:0 0 16px;color:var(--blue-2);font-size:20px;font-weight:800}.modal pre{white-space:pre-wrap;font-family:'Tajawal',sans-serif;color:#0b2540;background:#f8fbff;padding:16px;border-radius:10px;border:2px solid rgba(47,117,181,0.1);font-size:14px;line-height:1.6}.close{background:linear-gradient(135deg,rgba(255,255,255,0.95),rgba(250,250,250,0.9));color:var(--blue-2);border-radius:8px;padding:8px 16px;border:2px solid var(--blue-2);cursor:pointer;font-weight:700;transition:all 0.2s}.close:hover{background:var(--blue-2);color:#fff}.toolbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.print-options{display:none;position:fixed;right:20px;top:80px;background:#fff;padding:16px;border-radius:12px;box-shadow:0 8px 24px rgba(26,26,46,0.12);z-index:200;border:2px solid var(--blue-2)}.print-options h4{margin:0 0 12px;color:var(--blue-2)}.print-options button{display:block;width:100%;margin:6px 0}.data-table{width:100%;border-collapse:collapse;margin-top:16px}.data-table th,.data-table td{border:2px solid rgba(47,117,181,0.2);padding:10px;text-align:right}.data-table th{background:linear-gradient(135deg,var(--blue-2),var(--blue-1));color:#fff;font-weight:700}.data-table td[contenteditable="true"]{background:rgba(255,255,255,0.95);cursor:text}.data-table td[contenteditable="true"]:hover{background:rgba(47,117,181,0.05)}.data-table td[contenteditable="true"]:focus{outline:2px solid var(--blue-2);background:#fff}.print-gender-options{margin:12px 0;padding:12px;background:rgba(47,117,181,0.04);border-radius:8px;border:1px solid rgba(47,117,181,0.2)}.print-gender-options label{display:block;margin:8px 0;font-weight:600;cursor:pointer;font-size:14px;text-transform:none}
-
-/* === تحسينات الهاتف والآيباد === */
-@media (max-width:768px){
-body{padding:12px}
-.container{padding:16px;border-radius:12px}
-h1{font-size:18px}
-.btn{padding:14px 18px;font-size:15px;min-height:48px}
-input,textarea,select{padding:16px;font-size:16px;min-height:48px}
-.grid,.grid-3{grid-template-columns:1fr!important;gap:12px}
-.toolbar{flex-direction:column;align-items:stretch;width:100%}
-.toolbar .btn{width:100%;margin:4px 0}
-.data-table th,.data-table td{padding:8px;font-size:13px}
-.modal{max-width:95%;padding:16px;max-height:85vh}
-.search-box{min-width:100%}
-.top-row{padding:12px;flex-direction:column;align-items:stretch}
-.form-section{padding:16px}
-.actions{padding:12px;gap:8px}
-.actions .btn{width:100%;margin:4px 0}
-header{flex-direction:column;align-items:stretch}
-.print-options{right:10px;left:10px;top:60px;width:auto}
-.count{text-align:center}
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#3b82f6;
+  --primary-dark:#2563eb;
+  --success:#10b981;
+  --danger:#ef4444;
+  --warning:#f59e0b;
+  --dark:#1f2937;
+  --gray:#6b7280;
+  --light-bg:#f9fafb;
+  --border:#e5e7eb;
 }
 
-@media (min-width:769px) and (max-width:1024px){
-.grid{grid-template-columns:repeat(2,1fr)}
-.grid-3{grid-template-columns:1fr 1fr 1fr}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:'Tajawal',sans-serif;
+  background:#f3f4f6;
+  color:var(--dark);
+  padding:16px;
+  line-height:1.6;
+}
+
+.container{
+  max-width:1400px;
+  margin:0 auto;
+}
+
+header{
+  background:white;
+  padding:20px 24px;
+  border-radius:12px;
+  box-shadow:0 1px 3px rgba(0,0,0,0.1);
+  margin-bottom:20px;
+}
+
+.header-content{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+  flex-wrap:wrap;
+}
+
+h1{
+  font-size:22px;
+  color:var(--primary);
+  font-weight:700;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.stats{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.stat{
+  background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+  color:white;
+  padding:8px 16px;
+  border-radius:8px;
+  font-size:13px;
+  font-weight:600;
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+
+.main-grid{
+  display:grid;
+  grid-template-columns:350px 1fr;
+  gap:20px;
+  align-items:start;
+}
+
+.sidebar{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+
+.card{
+  background:white;
+  border-radius:12px;
+  padding:20px;
+  box-shadow:0 1px 3px rgba(0,0,0,0.1);
+}
+
+.card-title{
+  font-size:16px;
+  font-weight:700;
+  color:var(--dark);
+  margin-bottom:16px;
+  padding-bottom:12px;
+  border-bottom:2px solid var(--border);
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.search-group{
+  display:flex;
+  gap:8px;
+  margin-bottom:12px;
+}
+
+.search-group input{
+  flex:1;
+  padding:10px 14px;
+  border:1px solid var(--border);
+  border-radius:8px;
+  font-size:14px;
+  font-weight:500;
+  outline:none;
+  transition:all 0.2s;
+}
+
+.search-group input:focus{
+  border-color:var(--primary);
+  box-shadow:0 0 0 3px rgba(59,130,246,0.1);
+}
+
+.btn{
+  padding:10px 16px;
+  border:none;
+  border-radius:8px;
+  font-size:13px;
+  font-weight:600;
+  cursor:pointer;
+  transition:all 0.2s;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  justify-content:center;
+  white-space:nowrap;
+}
+
+.btn-primary{
+  background:var(--primary);
+  color:white;
+}
+
+.btn-primary:hover{
+  background:var(--primary-dark);
+  transform:translateY(-1px);
+}
+
+.btn-success{
+  background:var(--success);
+  color:white;
+}
+
+.btn-success:hover{
+  background:#059669;
+  transform:translateY(-1px);
+}
+
+.btn-danger{
+  background:var(--danger);
+  color:white;
+}
+
+.btn-danger:hover{
+  background:#dc2626;
+  transform:translateY(-1px);
+}
+
+.btn-warning{
+  background:var(--warning);
+  color:white;
+}
+
+.btn-warning:hover{
+  background:#d97706;
+  transform:translateY(-1px);
+}
+
+.btn-outline{
+  background:white;
+  color:var(--gray);
+  border:1px solid var(--border);
+}
+
+.btn-outline:hover{
+  background:var(--light-bg);
+  border-color:var(--primary);
+  color:var(--primary);
+}
+
+.btn-group{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+}
+
+.btn-full{
+  width:100%;
+}
+
+.form-group{
+  margin-bottom:14px;
+}
+
+.form-group label{
+  display:block;
+  font-size:13px;
+  font-weight:600;
+  color:var(--dark);
+  margin-bottom:6px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+  width:100%;
+  padding:10px 12px;
+  border:1px solid var(--border);
+  border-radius:8px;
+  font-size:14px;
+  font-weight:500;
+  outline:none;
+  transition:all 0.2s;
+  font-family:'Tajawal',sans-serif;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+  border-color:var(--primary);
+  box-shadow:0 0 0 3px rgba(59,130,246,0.1);
+}
+
+.form-group textarea{
+  min-height:80px;
+  resize:vertical;
+}
+
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.divider{
+  height:1px;
+  background:var(--border);
+  margin:16px 0;
+}
+
+.results-area{
+  min-height:300px;
+}
+
+.result-item{
+  background:var(--light-bg);
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:14px;
+  margin-bottom:10px;
+  cursor:pointer;
+  transition:all 0.2s;
+}
+
+.result-item:hover{
+  border-color:var(--primary);
+  box-shadow:0 2px 8px rgba(59,130,246,0.1);
+  transform:translateX(-3px);
+}
+
+.result-name{
+  font-size:15px;
+  font-weight:700;
+  color:var(--dark);
+  margin-bottom:8px;
+}
+
+.result-info{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  font-size:12px;
+  color:var(--gray);
+}
+
+.result-badge{
+  background:white;
+  padding:4px 10px;
+  border-radius:6px;
+  font-weight:600;
+  border:1px solid var(--border);
+}
+
+.badge-success{
+  color:var(--success);
+  border-color:var(--success);
+  background:rgba(16,185,129,0.1);
+}
+
+.badge-danger{
+  color:var(--danger);
+  border-color:var(--danger);
+  background:rgba(239,68,68,0.1);
+}
+
+.empty-state{
+  text-align:center;
+  padding:40px 20px;
+  color:var(--gray);
+}
+
+.empty-icon{
+  font-size:48px;
+  opacity:0.3;
+  margin-bottom:12px;
+}
+
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.5);
+  z-index:1000;
+  padding:20px;
+  align-items:center;
+  justify-content:center;
+  backdrop-filter:blur(4px);
+}
+
+.modal-content{
+  background:white;
+  border-radius:12px;
+  padding:24px;
+  max-width:500px;
+  width:100%;
+  max-height:80vh;
+  overflow-y:auto;
+  box-shadow:0 20px 60px rgba(0,0,0,0.3);
+}
+
+.modal-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:16px;
+  padding-bottom:12px;
+  border-bottom:2px solid var(--border);
+}
+
+.modal-title{
+  font-size:18px;
+  font-weight:700;
+  color:var(--dark);
+}
+
+.modal-close{
+  background:var(--danger);
+  color:white;
+  border:none;
+  width:32px;
+  height:32px;
+  border-radius:50%;
+  cursor:pointer;
+  font-size:18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:all 0.2s;
+}
+
+.modal-close:hover{
+  transform:rotate(90deg);
+}
+
+.alert{
+  padding:14px;
+  border-radius:8px;
+  font-size:14px;
+  font-weight:500;
+  line-height:1.6;
+}
+
+.alert-success{
+  background:rgba(16,185,129,0.1);
+  color:#065f46;
+  border-right:3px solid var(--success);
+}
+
+.alert-danger{
+  background:rgba(239,68,68,0.1);
+  color:#991b1b;
+  border-right:3px solid var(--danger);
+}
+
+.alert-warning{
+  background:rgba(245,158,11,0.1);
+  color:#92400e;
+  border-right:3px solid var(--warning);
+}
+
+.alert-info{
+  background:rgba(59,130,246,0.1);
+  color:#1e40af;
+  border-right:3px solid var(--primary);
+}
+
+.section-divider{
+  margin:16px 0;
+  padding:8px 12px;
+  background:var(--light-bg);
+  border-radius:6px;
+  font-size:12px;
+  font-weight:600;
+  color:var(--gray);
+  text-transform:uppercase;
+  letter-spacing:0.5px;
+}
+
+@media (max-width:1024px){
+  .main-grid{
+    grid-template-columns:1fr;
+  }
+  
+  .sidebar{
+    order:2;
+  }
+  
+  .results-area{
+    order:1;
+  }
+}
+
+@media (max-width:768px){
+  body{
+    padding:8px;
+  }
+  
+  h1{
+    font-size:18px;
+  }
+  
+  .header-content{
+    flex-direction:column;
+    align-items:stretch;
+  }
+  
+  .stats{
+    width:100%;
+  }
+  
+  .stat{
+    flex:1;
+    justify-content:center;
+  }
+  
+  .search-group{
+    flex-direction:column;
+  }
+  
+  .form-grid{
+    grid-template-columns:1fr;
+  }
+  
+  .btn-group{
+    grid-template-columns:1fr;
+  }
+  
+  .card{
+    padding:16px;
+  }
 }
 </style>
 </head>
 <body>
+
 <div class="container">
-<header>
-<h1>🧊 برنامج إدارة الأسماء</h1>
-<div class="toolbar">
-<span class="count" id="countLabel">إجمالي: 0</span>
-<button id="viewAllBtn" class="btn">📋 عرض الكل</button>
-<button id="exportAllBtn" class="btn">📤 تصدير</button>
-<button id="showMissingBtn" class="btn ghost">📉 الناقصة</button>
-<button id="restoreBtn" class="btn ghost">🔁 استرداد</button>
-<button id="printBtn" class="btn ghost">🖨️ طباعة</button>
-</div>
-</header>
-<div class="top-row">
-<div class="search-box">
-<input id="searchInput" placeholder="🔍 ابحث..." autocomplete="off">
-<button id="searchBtn" class="btn">بحث</button>
-</div>
-<div style="display:flex;gap:8px;flex-wrap:wrap;width:100%">
-<button id="exportCSV" class="btn ghost" style="flex:1">⬇️ نسخة احتياطية</button>
-<button id="importCSV" class="btn" style="flex:1">⬆️ استيراد</button>
-</div>
-</div>
-<div class="form-section">
-<h2 class="form-section-title">📝 بيانات السجل</h2>
-<div class="grid">
-<div class="field"><label for="name">الاسم</label><input id="name" type="text" placeholder="أدخل الاسم" autocomplete="off"/></div>
-<div class="field"><label for="qty">الكمية</label><input id="qty" type="number" min="0" placeholder="الكمية"/></div>
-<div class="field"><label for="gender">الجنس</label><select id="gender"><option value="">اختر</option><option value="ذكر">👦 ذكر</option><option value="أنثى">👧 أنثى</option></select></div>
-<div class="field"><label for="color">اللون</label><input id="color" type="text" placeholder="اللون" autocomplete="off"/></div>
-</div>
-<div style="margin-top:18px"><div class="field"><label for="note">الملاحظات</label><textarea id="note" placeholder="ملاحظات إضافية"></textarea></div></div>
-</div>
-<div class="actions">
-<button id="addBtn" class="btn">➕ إضافة</button>
-<button id="queryBtn" class="btn ghost">🔎 استعلام</button>
-<button id="editBtn" class="btn">✏️ تعديل</button>
-<button id="deleteBtn" class="btn ghost">🗑 حذف</button>
-<button id="exportMissingBtn" class="btn">💾 تصدير الناقصة</button>
-</div>
-<div class="form-section">
-<h2 class="form-section-title">🛒 عملية البيع</h2>
-<div class="grid-3">
-<div class="field"><label for="sellName">اسم المنتج</label><input id="sellName" type="text" placeholder="الاسم" autocomplete="off"/></div>
-<div class="field"><label for="sellQty">الكمية</label><input id="sellQty" type="number" min="1" placeholder="الكمية"/></div>
-<div class="field"><label style="opacity:0">.</label><button id="sellQueryBtn" class="btn ghost" style="width:100%">🔍 استعلام</button></div>
-</div>
-<div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap"><button id="sellBtn" class="btn" style="flex:1">💰 تنفيذ البيع</button></div>
-</div>
-<div class="checklist-section">
-<h2 class="form-section-title">📋 التحقق من قائمة</h2>
-<label class="small" style="margin-bottom:10px;display:block">الصق الأسماء (سطر لكل اسم)</label>
-<textarea id="checkList" class="textarea-check" placeholder="مثال:&#10;خالد&#10;أحمد&#10;محمد"></textarea>
-<div style="display:flex;gap:10px;margin-top:12px;flex-wrap:wrap">
-<button id="checkNamesBtn" class="btn" style="flex:1">🔎 تحقق</button>
-<button id="exportMissingCheckedBtn" class="btn ghost" style="flex:1">⬇️ تصدير الناقصة</button>
-<button id="clearListBtn" class="btn ghost">🧹 مسح</button>
-</div>
-</div>
-<p class="note">💡 البيانات محفوظة محلياً. يمكنك التصدير لحفظ نسخة احتياطية.</p>
+  <header>
+    <div class="header-content">
+      <h1>🗂️ برنامج إدارة الأسماء</h1>
+      <div class="stats">
+        <div class="stat">📊 الإجمالي: <span id="totalCount">0</span></div>
+        <div class="stat">✅ متوفر: <span id="availableCount">0</span></div>
+        <div class="stat">❌ ناقص: <span id="missingCount">0</span></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="main-grid">
+    <!-- Sidebar - العمليات -->
+    <div class="sidebar">
+      
+      <!-- البحث -->
+      <div class="card">
+        <div class="card-title">🔍 البحث والعرض</div>
+        <div class="search-group">
+          <input type="text" id="searchInput" placeholder="ابحث عن اسم..." autocomplete="off">
+          <button class="btn btn-primary" id="searchBtn">بحث</button>
+        </div>
+        <div class="btn-group">
+          <button class="btn btn-outline btn-full" id="showAllBtn">📋 الكل</button>
+          <button class="btn btn-outline btn-full" id="showMissingBtn">❌ ناقص</button>
+        </div>
+      </div>
+
+      <!-- إدارة السجلات -->
+      <div class="card">
+        <div class="card-title">✏️ إدارة السجلات</div>
+        
+        <div class="form-group">
+          <label>الاسم</label>
+          <input type="text" id="nameInput" placeholder="أدخل الاسم">
+        </div>
+        
+        <div class="form-grid">
+          <div class="form-group">
+            <label>الكمية</label>
+            <input type="number" id="qtyInput" placeholder="0" min="0">
+          </div>
+          <div class="form-group">
+            <label>الجنس</label>
+            <select id="genderInput">
+              <option value="">اختر</option>
+              <option value="ذكر">👦 ذكر</option>
+              <option value="أنثى">👧 أنثى</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label>اللون</label>
+          <input type="text" id="colorInput" placeholder="اللون">
+        </div>
+        
+        <div class="form-group">
+          <label>ملاحظات</label>
+          <textarea id="noteInput" placeholder="ملاحظات إضافية..."></textarea>
+        </div>
+        
+        <div class="section-divider">العمليات</div>
+        
+        <div class="btn-group">
+          <button class="btn btn-success btn-full" id="addBtn">➕ إضافة</button>
+          <button class="btn btn-primary btn-full" id="updateBtn">✏️ تحديث</button>
+          <button class="btn btn-danger btn-full" id="deleteBtn">🗑️ حذف</button>
+          <button class="btn btn-outline btn-full" id="clearFormBtn">🧹 مسح</button>
+        </div>
+      </div>
+
+      <!-- عملية البيع -->
+      <div class="card">
+        <div class="card-title">🛒 عملية البيع</div>
+        
+        <div class="form-group">
+          <label>اسم المنتج</label>
+          <input type="text" id="sellNameInput" placeholder="الاسم">
+        </div>
+        
+        <div class="form-group">
+          <label>الكمية</label>
+          <input type="number" id="sellQtyInput" placeholder="0" min="1">
+        </div>
+        
+        <div class="btn-group">
+          <button class="btn btn-warning btn-full" id="sellBtn">💰 بيع</button>
+          <button class="btn btn-outline btn-full" id="checkSellBtn">🔍 فحص</button>
+        </div>
+      </div>
+
+      <!-- النسخ الاحتياطي -->
+      <div class="card">
+        <div class="card-title">💾 النسخ الاحتياطي</div>
+        
+        <div class="btn-group">
+          <button class="btn btn-success btn-full" id="backupBtn">⬇️ تحميل</button>
+          <button class="btn btn-primary btn-full" id="restoreBtn">⬆️ استرداد</button>
+        </div>
+        
+        <div id="fileUploadArea" style="display:none;margin-top:12px;padding:20px;border:2px dashed var(--border);border-radius:8px;text-align:center;cursor:pointer;background:var(--light-bg)">
+          <div style="font-size:32px;margin-bottom:8px">📁</div>
+          <div style="font-size:13px;font-weight:600;color:var(--gray)">انقر لاختيار ملف CSV</div>
+          <input type="file" id="fileInput" accept=".csv" style="display:none">
+        </div>
+      </div>
+      
+    </div>
+
+    <!-- النتائج -->
+    <div class="card results-area">
+      <div class="card-title">📊 النتائج</div>
+      <div id="searchResults">
+        <div class="empty-state">
+          <div class="empty-icon">🔍</div>
+          <div style="font-weight:600">استخدم البحث أو اضغط "الكل" لعرض السجلات</div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
 </div>
 
-<div id="printOptions" class="print-options">
-<h4>خيارات الطباعة</h4>
-<div class="print-gender-options">
-<label><input type="radio" name="printGender" value="all" checked> الكل</label>
-<label><input type="radio" name="printGender" value="ذكر"> ذكور</label>
-<label><input type="radio" name="printGender" value="أنثى"> إناث</label>
+<!-- Modal -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3 class="modal-title" id="modalTitle">رسالة</h3>
+      <button class="modal-close" id="modalCloseBtn">×</button>
+    </div>
+    <div id="modalBody"></div>
+  </div>
 </div>
-<button id="printAllBtn" class="btn">🖨️ طباعة الكل</button>
-<button id="printMissingBtn" class="btn ghost">📋 طباعة الناقصة</button>
-<button id="printCheckedMissingBtn" class="btn ghost">📥 طباعة ناقصة القائمة</button>
-<button id="printCloseBtn" class="btn ghost">إغلاق</button>
-</div>
-
-<div id="modal" class="modal-backdrop">
-<div class="modal">
-<div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:16px;flex-wrap:wrap">
-<h3 id="modalTitle">عنوان</h3>
-<div style="display:flex;gap:8px"><button id="modalDownload" class="btn" style="display:none">⬇️ تحميل</button><button id="modalClose" class="close">إغلاق</button></div>
-</div>
-<div><pre id="modalText"></pre></div>
-</div>
-</div>
-
-<div id="viewAllModal" class="modal-backdrop">
-<div class="modal" style="max-width:1100px">
-<div style="text-align:center;margin-bottom:20px;padding-bottom:16px;border-bottom:2px solid rgba(47,117,181,0.2)">
-<h3 style="margin:12px 0 0 0;color:var(--blue-2);font-size:22px">📋 جميع الأسماء (قابلة للتعديل)</h3>
-</div>
-<div style="display:flex;gap:8px;margin-bottom:16px;justify-content:center;flex-wrap:wrap">
-<button id="saveTableBtn" class="btn">💾 حفظ</button>
-<button id="viewAllClose" class="close">إغلاق</button>
-</div>
-<div style="overflow-x:auto">
-<table class="data-table" id="dataTable">
-<thead>
-<tr>
-<th>#</th>
-<th>الاسم</th>
-<th>الكمية</th>
-<th>الجنس</th>
-<th>اللون</th>
-<th>ملاحظات</th>
-</tr>
-</thead>
-<tbody id="tableBody"></tbody>
-</table>
-</div>
-<p class="note" style="margin-top:16px">💡 انقر على أي خلية للتعديل</p>
-</div>
-</div>
-
-<input id="fileInput" type="file" accept=".csv" style="display:none"/>
 
 <script>
-const STORAGE_KEY='md_program_db_v3';let db=JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]');const el={search:document.getElementById('searchInput'),searchBtn:document.getElementById('searchBtn'),add:document.getElementById('addBtn'),query:document.getElementById('queryBtn'),edit:document.getElementById('editBtn'),del:document.getElementById('deleteBtn'),exportCSV:document.getElementById('exportCSV'),importCSV:document.getElementById('importCSV'),exportAll:document.getElementById('exportAllBtn'),showMissing:document.getElementById('showMissingBtn'),exportMissing:document.getElementById('exportMissingBtn'),restore:document.getElementById('restoreBtn'),count:document.getElementById('countLabel'),name:document.getElementById('name'),gender:document.getElementById('gender'),qty:document.getElementById('qty'),color:document.getElementById('color'),note:document.getElementById('note'),sellName:document.getElementById('sellName'),sellQty:document.getElementById('sellQty'),sell:document.getElementById('sellBtn'),sellQuery:document.getElementById('sellQueryBtn'),checkList:document.getElementById('checkList'),checkNames:document.getElementById('checkNamesBtn'),exportMissingChecked:document.getElementById('exportMissingCheckedBtn'),clearList:document.getElementById('clearListBtn'),modal:document.getElementById('modal'),modalText:document.getElementById('modalText'),modalTitle:document.getElementById('modalTitle'),modalClose:document.getElementById('modalClose'),modalDownload:document.getElementById('modalDownload'),fileInput:document.getElementById('fileInput'),printBtn:document.getElementById('printBtn'),printOptions:document.getElementById('printOptions'),printAllBtn:document.getElementById('printAllBtn'),printMissingBtn:document.getElementById('printMissingBtn'),printCheckedMissingBtn:document.getElementById('printCheckedMissingBtn'),printCloseBtn:document.getElementById('printCloseBtn'),viewAllBtn:document.getElementById('viewAllBtn'),viewAllModal:document.getElementById('viewAllModal'),viewAllClose:document.getElementById('viewAllClose'),saveTableBtn:document.getElementById('saveTableBtn'),tableBody:document.getElementById('tableBody')};if(db.length===0){db=[{name:'خالد',gender:'ذكر',qty:25,color:'أزرق',note:'مقاس صغير'},{name:'خالدة',gender:'أنثى',qty:10,color:'أحمر',note:'مخصصة'},{name:'أحمد',gender:'ذكر',qty:0,color:'أخضر',note:'ناقص'},{name:'فاطمة',gender:'أنثى',qty:15,color:'وردي',note:''}];saveDB()}updateCount();function showModal(t,txt,blob=null,fname='data.csv'){el.modalTitle.textContent=t;el.modalText.textContent=txt;if(blob){el.modalDownload.style.display='inline-flex';el.modalDownload.onclick=()=>{const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=fname;document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url)}}else{el.modalDownload.style.display='none';el.modalDownload.onclick=null}el.modal.style.display='flex'}function closeModal(){el.modal.style.display='none'}el.modalClose.onclick=closeModal;el.modal.onclick=e=>{if(e.target===el.modal)closeModal()};function saveDB(){localStorage.setItem(STORAGE_KEY,JSON.stringify(db));updateCount()}function updateCount(){el.count.textContent=`إجمالي: ${db.length}`}function clearInputs(){el.name.value='';el.gender.value='';el.qty.value='';el.color.value='';el.note.value=''}function addEntry(){const name=el.name.value.trim();if(!name){showModal('⚠️ تنبيه','الرجاء إدخال الاسم');return}const gender=el.gender.value;if(!gender){showModal('⚠️ تنبيه','الرجاء اختيار الجنس');return}if(db.some(r=>r.name.toLowerCase()===name.toLowerCase())){showModal('⚠️ تنبيه','هذا الاسم موجود مسبقًا');return}const qty=Number(el.qty.value)||0;const color=el.color.value.trim();const note=el.note.value.trim();db.push({name,gender,qty,color,note});saveDB();clearInputs();showModal('✅ تم الإضافة',`${name}\nالكمية: ${qty}\nالجنس: ${gender}`)}function searchEntries(){const q=el.search.value.trim();if(!q){showModal('⚠️ تنبيه','أدخل نص للبحث');return}const results=db.filter(r=>(r.name||'').toLowerCase().includes(q.toLowerCase()));if(results.length===0){showModal('⚠️ غير موجود',`لا نتائج لـ "${q}"`)}else{let text=`عدد النتائج: ${results.length}\n\n`;results.forEach((r,i)=>{text+=`${i+1}) ${r.name}\n   الكمية: ${r.qty}\n   الجنس: ${r.gender||'-'}\n   اللون: ${r.color}\n\n`});showModal('📋 نتائج البحث',text)}}function queryPopulate(){const q=el.search.value.trim();if(!q){showModal('⚠️ تنبيه','أدخل الاسم');return}const found=db.find(r=>r.name.toLowerCase()===q.toLowerCase());if(!found){showModal('⚠️ غير موجود',`لا يوجد "${q}"`);return}el.name.value=found.name;el.gender.value=found.gender||'';el.qty.value=found.qty;el.color.value=found.color;el.note.value=found.note;showModal('✅ تم',`تم تعبئة: ${found.name}`)}function editEntry(){const name=el.name.value.trim();if(!name){showModal('⚠️ تنبيه','أدخل الاسم');return}const gender=el.gender.value;if(!gender){showModal('⚠️ تنبيه','اختر الجنس');return}const idx=db.findIndex(r=>r.name.toLowerCase()===name.toLowerCase());if(idx===-1){showModal('⚠️ غير موجود',`لا يوجد "${name}"`);return}const qty=Number(el.qty.value)||0;const color=el.color.value.trim();const note=el.note.value.trim();db[idx]={name,gender,qty,color,note};saveDB();clearInputs();showModal('✅ تم التعديل',`تم تعديل: ${name}`)}function deleteEntry(){const name=el.name.value.trim();if(!name){showModal('⚠️ تنبيه','أدخل الاسم');return}const idx=db.findIndex(r=>r.name.toLowerCase()===name.toLowerCase());if(idx===-1){showModal('⚠️ غير موجود',`لا يوجد "${name}"`);return}if(!confirm(`حذف "${name}"؟`))return;db.splice(idx,1);saveDB();clearInputs();showModal('✅ تم الحذف',`تم حذف: ${name}`)}function exportAll(){if(db.length===0){showModal('⚠️ تنبيه','لا بيانات');return}let text='جميع السجلات:\n\n';db.forEach((r,i)=>{text+=`${i+1}) ${r.name} | ${r.qty} | ${r.gender||'-'} | ${r.color}\n`});showModal('📋 جميع السجلات',text)}function showMissing(){const missing=db.filter(r=>r.qty===0);if(missing.length===0){showModal('✅ لا ناقصة','الكل متوفر');return}let text=`عدد: ${missing.length}\n\n`;missing.forEach((r,i)=>{text+=`${i+1}) ${r.name} | ${r.gender||'-'} | ${r.color}\n`});showModal('📉 الناقصة',text)}function exportMissing(){const missing=db.filter(r=>r.qty===0);if(missing.length===0){showModal('✅ لا ناقصة','الكل متوفر');return}let csv='الاسم,الكمية,الجنس,اللون,ملاحظات\n';missing.forEach(r=>{csv+=`${r.name},${r.qty},${r.gender||''},${r.color},"${r.note||''}"\n`});const blob=new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8'});showModal('💾 تصدير',`${missing.length} سجل`,blob,'الناقصة.csv')}function exportToCSV(){if(db.length===0){showModal('⚠️ تنبيه','لا بيانات');return}let csv='الاسم,الكمية,الجنس,اللون,ملاحظات\n';db.forEach(r=>{csv+=`${r.name},${r.qty},${r.gender||''},${r.color},"${r.note||''}"\n`});const blob=new Blob(['\ufeff'+csv],{type:'text/csv;charset
+const STORAGE_KEY = 'names_manager_db_v5';
+
+const elements = {
+  searchInput: document.getElementById('searchInput'),
+  searchBtn: document.getElementById('searchBtn'),
+  showAllBtn: document.getElementById('showAllBtn'),
+  showMissingBtn: document.getElementById('showMissingBtn'),
+  searchResults: document.getElementById('searchResults'),
+  backupBtn: document.getElementById('backupBtn'),
+  restoreBtn: document.getElementById('restoreBtn'),
+  fileUploadArea: document.getElementById('fileUploadArea'),
+  fileInput: document.getElementById('fileInput'),
+  nameInput: document.getElementById('nameInput'),
+  qtyInput: document.getElementById('qtyInput'),
+  genderInput: document.getElementById('genderInput'),
+  colorInput: document.getElementById('colorInput'),
+  noteInput: document.getElementById('noteInput'),
+  addBtn: document.getElementById('addBtn'),
+  updateBtn: document.getElementById('updateBtn'),
+  deleteBtn: document.getElementById('deleteBtn'),
+  clearFormBtn: document.getElementById('clearFormBtn'),
+  sellNameInput: document.getElementById('sellNameInput'),
+  sellQtyInput: document.getElementById('sellQtyInput'),
+  sellBtn: document.getElementById('sellBtn'),
+  checkSellBtn: document.getElementById('checkSellBtn'),
+  totalCount: document.getElementById('totalCount'),
+  availableCount: document.getElementById('availableCount'),
+  missingCount: document.getElementById('missingCount'),
+  modal: document.getElementById('modal'),
+  modalTitle: document.getElementById('modalTitle'),
+  modalBody: document.getElementById('modalBody'),
+  modalCloseBtn: document.getElementById('modalCloseBtn')
+};
+
+let db = [];
+try {
+  const stored = localStorage.getItem(STORAGE_KEY);
+  db = stored ? JSON.parse(stored) : [];
+} catch(e) {
+  console.error('خطأ في تحميل البيانات:', e);
+  db = [];
+}
+
+if(db.length === 0) {
+  db = [
+    {name:'خالد',gender:'ذكر',qty:25,color:'أزرق',note:'مقاس صغير'},
+    {name:'خالدة',gender:'أنثى',qty:10,color:'أحمر',note:'مخصصة'},
+    {name:'أحمد',gender:'ذكر',qty:0,color:'أخضر',note:'ناقص'},
+    {name:'فاطمة',gender:'أنثى',qty:15,color:'وردي',note:''},
+    {name:'محمد',gender:'ذكر',qty:30,color:'أسود',note:''},
+    {name:'عائشة',gender:'أنثى',qty:0,color:'بنفسجي',note:'طلب خاص'}
+  ];
+  saveDB();
+}
+
+function saveDB() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(db));
+  updateStats();
+}
+
+function updateStats() {
+  elements.totalCount.textContent = db.length;
+  elements.availableCount.textContent = db.filter(function(item) {
+    return item.qty > 0;
+  }).length;
+  elements.missingCount.textContent = db.filter(function(item) {
+    return item.qty === 0;
+  }).length;
+}
+
+function displayResults(items, title) {
+  if(items.length === 0) {
+    elements.searchResults.innerHTML = '<div class="empty-state"><div class="empty-icon">❌</div><div style="font-weight:600">لا توجد نتائج</div></div>';
+    return;
+  }
+  
+  let html = '';
+  if(title) {
+    html += '<div style="margin-bottom:16px;font-weight:700;color:var(--primary);font-size:15px">' + title + '</div>';
+  }
+  
+  items.forEach(function(item, index) {
+    const qtyBadge = item.qty === 0 ? 
+      '<span class="result-badge badge-danger">❌ ناقص</span>' : 
+      '<span class="result-badge badge-success">✅ ' + item.qty + '</span>';
+    
+    html += '<div class="result-item" onclick="fillForm(\'' + item.name.replace(/'/g, "\\'") + '\')">';
+    html += '<div class="result-name">' + (index + 1) + '. ' + item.name + '</div>';
+    html += '<div class="result-info">';
+    html += qtyBadge;
+    html += '<span class="result-badge">⚧ ' + (item.gender || 'غير محدد') + '</span>';
+    html += '<span class="result-badge">🎨 ' + (item.color || '-') + '</span>';
+    if(item.note) {
+      html += '<span class="result-badge">📝 ' + item.note + '</span>';
+    }
+    html += '</div></div>';
+  });
+  
+  elements.searchResults.innerHTML = html;
+}
+
+function fillForm(name) {
+  const item = db.find(function(i) {
+    return i.name.toLowerCase() === name.toLowerCase();
+  });
+  
+  if(item) {
+    elements.nameInput.value = item.name;
+    elements.qtyInput.value = item.qty;
+    elements.genderInput.value = item.gender || '';
+    elements.colorInput.value = item.color || '';
+    elements.noteInput.value = item.note || '';
+    showModal('✅ تم', 'تم تعبئة بيانات: ' + item.name, 'success');
+  }
+}
+
+function showModal(title, message, type) {
+  type = type || 'info';
+  elements.modalTitle.textContent = title;
+  
+  let alertClass = 'alert-info';
+  if(type === 'success') alertClass = 'alert-success';
+  if(type === 'error') alertClass = 'alert-danger';
+  if(type === 'warning') alertClass = 'alert-warning';
+  
+  elements.modalBody.innerHTML = '<div class="alert ' + alertClass + '">' + message + '</div>';
+  elements.modal.style.display = 'flex';
+}
+
+function closeModal() {
+  elements.modal.style.display = 'none';
+}
+
+elements.searchBtn.addEventListener('click', function() {
+  const query = elements.searchInput.value.trim().toLowerCase();
+  if(!query) {
+    showModal('⚠️ تنبيه', 'الرجاء إدخال نص للبحث', 'warning');
+    return;
+  }
+  
+  const results = db.filter(function(item) {
+    return item.name.toLowerCase().includes(query);
+  });
+  
+  displayResults(results, 'نتائج: "' + elements.searchInput.value + '"');
+});
+
+elements.searchInput.addEventListener('keypress', function(e) {
+  if(e.key === 'Enter') {
+    elements.searchBtn.click();
+  }
+});
+
+elements.showAllBtn.addEventListener('click', function() {
+  displayResults(db, '📋 جميع السجلات (' + db.length + ')');
+});
+
+elements.showMissingBtn.addEventListener('click', function() {
+  const missing = db.filter(function(item) {
+    return item.qty === 0;
+  });
+  displayResults(missing, '❌ السجلات الناقصة (' + missing.length + ')');
+});
+
+elements.backupBtn.addEventListener('click', function() {
+  if(db.length === 0) {
+    showModal('⚠️ تنبيه', 'لا توجد بيانات للنسخ الاحتياطي', 'warning');
+    return;
+  }
+  
+  let csv = '\ufeffالاسم,الكمية,الجنس,اللون,ملاحظات\n';
+  db.forEach(function(item) {
+    csv += item.name + ',' + item.qty + ',' + (item.gender || '') + ',' + (item.color || '') + ',"' + (item.note || '') + '"\n';
+  });
+  
+  const blob = new Blob([csv], {type: 'text/csv;charset=utf-8'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'نسخة_احتياطية_' + new Date().toISOString().split('T')[0] + '.csv';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  
+  showModal('✅ نجح', 'تم تحميل ' + db.length + ' سجل', 'success');
+});
+
+elements.restoreBtn.addEventListener('click', function() {
+  elements.fileUploadArea.style.display = 'block';
+  elements.fileInput.click();
+});
+
+elements.fileUploadArea.addEventListener('click', function() {
+  elements.fileInput.click();
+});
+
+elements.fileInput.addEventListener('change', function(e) {
+  const file = e.target.files[0];
+  if(!file) return;
+  
+  if(!file.name.endsWith('.csv')) {
+    showModal('⚠️ خطأ', 'يرجى اختيار ملف CSV فقط', 'error');
+    return;
+  }
+  
+  const reader = new FileReader();
+  reader.onload = function(event) {
+    try {
+      const content = event.target.result;
+      const lines = content.split('\n').filter(function(line) {
+        return line.trim();
+      });
+      
+      if(lines.length < 2) {
+        showModal('⚠️ خطأ', 'الملف فارغ أو بتنسيق غير صحيح', 'error');
+        return;
+      }
+      
+      const newDB = [];
+      for(let i = 1; i < lines.length; i++) {
+        const parts = lines[i].split(',');
+        if(parts.length >= 3) {
+          const name = parts[0].trim();
+          const qty = parseInt(parts[1]) || 0;
+          const gender = parts[2].trim();
+          const color = parts[3] ? parts[3].trim() : '';
+          const note = parts[4] ? parts[4].replace(/^"|"$/g, '').trim() : '';
+          
+          if(name) {
+            newDB.push({name: name, qty: qty, gender: gender, color: color, note: note});
+          }
+        }
+      }
+      
+      if(newDB.length === 0) {
+        showModal('⚠️ خطأ', 'لم يتم العثور على بيانات صالحة', 'error');
+        return;
+      }
+      
+      if(confirm('استبدال ' + db.length + ' سجل بـ ' + newDB.length + ' سجل من الملف؟')) {
+        db = newDB;
+        saveDB();
+        displayResults(db, '✅ تم الاسترداد');
+        elements.fileUploadArea.style.display = 'none';
+        showModal('✅ نجح', 'تم استرداد ' + newDB.length + ' سجل', 'success');
+      }
+    } catch(error) {
+      showModal('⚠️ خطأ', 'حدث خطأ في قراءة الملف', 'error');
+    }
+  };
+  
+  reader.readAsText(file, 'UTF-8');
+  elements.fileInput.value = '';
+});
+
+elements.clearFormBtn.addEventListener('click', function() {
+  elements.nameInput.value = '';
+  elements.qtyInput.value = '';
+  elements.genderInput.value = '';
+  elements.colorInput.value = '';
+  elements.noteInput.value = '';
+});
+
+elements.addBtn.addEventListener('click', function() {
+  const name = elements.nameInput.value.trim();
+  const gender = elements.genderInput.value;
+  
+  if(!name) {
+    showModal('⚠️ تنبيه', 'الرجاء إدخال الاسم', 'warning');
+    return;
+  }
+  
+  if(!gender) {
+    showModal('⚠️ تنبيه', 'الرجاء اختيار الجنس', 'warning');
+    return;
+  }
+  
+  const exists = db.some(function(item) {
+    return item.name.toLowerCase() === name.toLowerCase();
+  });
+  
+  if(exists) {
+    showModal('⚠️ موجود', 'الاسم "' + name + '" موجود مسبقاً', 'warning');
+    return;
+  }
+  
+  const qty = parseInt(elements.qtyInput.value) || 0;
+  const color = elements.colorInput.value.trim();
+  const note = elements.noteInput.value.trim();
+  
+  db.push({name: name, qty: qty, gender: gender, color: color, note: note});
+  saveDB();
+  
+  showModal('✅ تم', 'تم إضافة: ' + name, 'success');
+  elements.clearFormBtn.click();
+  displayResults(db, '📋 جميع السجلات');
+});
+
+elements.updateBtn.addEventListener('click', function() {
+  const name = elements.nameInput.value.trim();
+  
+  if(!name) {
+    showModal('⚠️ تنبيه', 'الرجاء إدخال الاسم', 'warning');
+    return;
+  }
+  
+  const index = db.findIndex(function(item) {
+    return item.name.toLowerCase() === name.toLowerCase();
+  });
+  
+  if(index === -1) {
+    showModal('⚠️ غير موجود', 'الاسم "' + name + '" غير موجود', 'error');
+    return;
+  }
+  
+  const gender = elements.genderInput.value;
+  if(!gender) {
+    showModal('⚠️ تنبيه', 'الرجاء اختيار الجنس', 'warning');
+    return;
+  }
+  
+  const qty = parseInt(elements.qtyInput.value) || 0;
+  const color = elements.colorInput.value.trim();
+  const note = elements.noteInput.value.trim();
+  
+  db[index] = {name: name, qty: qty, gender: gender, color: color, note: note};
+  saveDB();
+  
+  showModal('✅ تم', 'تم تحديث: ' + name, 'success');
+  displayResults(db, '📋 جميع السجلات');
+});
+
+elements.deleteBtn.addEventListener('click', function() {
+  const name = elements.nameInput.value.trim();
+  
+  if(!name) {
+    showModal('⚠️ تنبيه', 'الرجاء إدخال الاسم', 'warning');
+    return;
+  }
+  
+  const index = db.findIndex(function(item) {
+    return item.name.toLowerCase() === name.toLowerCase();
+  });
+  
+  if(index === -1) {
+    showModal('⚠️ غير موجود', 'الاسم "' + name + '" غير موجود', 'error');
+    return;
+  }
+  
+  if(!confirm('حذف "' + name + '"؟')) {
+    return;
+  }
+  
+  db.splice(index, 1);
+  saveDB();
+  
+  showModal('✅ تم', 'تم حذف: ' + name, 'success');
+  elements.clearFormBtn.click();
+  displayResults(db, '📋 جميع السجلات');
+});
+
+elements.checkSellBtn.addEventListener('click', function() {
+  const name = elements.sellNameInput.value.trim();
+  
+  if(!name) {
+    showModal('⚠️ تنبيه', 'الرجاء إدخال اسم المنتج', 'warning');
+    return;
+  }
+  
+  const item = db.find(function(i) {
+    return i.name.toLowerCase() === name.toLowerCase();
+  });
+  
+  if(!item) {
+    showModal('⚠️ غير موجود', 'المنتج "' + name + '" غير موجود', 'error');
+    return;
+  }
+  
+  const status = item.qty === 0 ? 
+    '❌ <strong style="color:var(--danger)">غير متوفر</strong>' : 
+    '✅ <strong style="color:var(--success)">متوفر (' + item.qty + ')</strong>';
+  
+  showModal('📦 المخزون', '<strong>' + item.name + '</strong><br><br>' + status + '<br>الجنس: ' + (item.gender || '-') + '<br>اللون: ' + (item.color || '-'), 'info');
+});
+
+elements.sellBtn.addEventListener('click', function() {
+  const name = elements.sellNameInput.value.trim();
+  const sellQty = parseInt(elements.sellQtyInput.value) || 0;
+  
+  if(!name) {
+    showModal('⚠️ تنبيه', 'الرجاء إدخال اسم المنتج', 'warning');
+    return;
+  }
+  
+  if(sellQty <= 0) {
+    showModal('⚠️ تنبيه', 'الرجاء إدخال كمية صحيحة', 'warning');
+    return;
+  }
+  
+  const index = db.findIndex(function(item) {
+    return item.name.toLowerCase() === name.toLowerCase();
+  });
+  
+  if(index === -1) {
+    showModal('⚠️ غير موجود', 'المنتج "' + name + '" غير موجود', 'error');
+    return;
+  }
+  
+  if(db[index].qty < sellQty) {
+    showModal('⚠️ كمية غير كافية', 'المتاح: ' + db[index].qty + '<br>المطلوب: ' + sellQty, 'error');
+    return;
+  }
+  
+  if(!confirm('بيع ' + sellQty + ' من "' + name + '"؟')) {
+    return;
+  }
+  
+  db[index].qty -= sellQty;
+  saveDB();
+  
+  showModal('✅ تم البيع', '<strong>' + name + '</strong><br><br>المباع: ' + sellQty + '<br>المتبقي: ' + db[index].qty, 'success');
+  
+  elements.sellNameInput.value = '';
+  elements.sellQtyInput.value = '';
+});
+
+elements.modalCloseBtn.addEventListener('click', closeModal);
+
+elements.modal.addEventListener('click', function(e) {
+  if(e.target === elements.modal) {
+    closeModal();
+  }
+});
+
+document.addEventListener('keydown', function(e) {
+  if(e.key === 'Escape') {
+    closeModal();
+  }
+  
+  if(e.ctrlKey && e.key === 'f') {
+    e.preventDefault();
+    elements.searchInput.focus();
+  }
+  
+  if(e.ctrlKey && e.key === 's') {
+    e.preventDefault();
+    elements.backupBtn.click();
+  }
+});
+
+updateStats();
+
+console.log('✅ البرنامج جاهز');
+console.log('📊 السجلات: ' + db.length);
+</script>
+</body>
+</html>
