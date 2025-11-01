@@ -3,23 +3,9 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-capable" content="yes">
 <title>برنامج إدارة الأسماء</title>
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{
-  --primary:#3b82f6;
-  --primary-dark:#2563eb;
-  --success:#10b981;
-  --danger:#ef4444;
-  --warning:#f59e0b;
-  --dark:#1f2937;
-  --gray:#6b7280;
-  --light-bg:#f9fafb;
-  --border:#9ca3af;
-}
-
 *{
   box-sizing:border-box;
   margin:0;
@@ -27,381 +13,326 @@
 }
 
 body{
-  font-family:'Tajawal',sans-serif;
-  background:#f3f4f6;
-  color:var(--dark);
-  padding:16px;
-  line-height:1.6;
+  font-family:'Cairo',sans-serif;
+  background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+  padding:20px;
+  min-height:100vh;
 }
 
 .container{
-  max-width:1400px;
+  max-width:1000px;
   margin:0 auto;
 }
 
-header{
+.header{
   background:white;
-  padding:20px 24px;
-  border-radius:12px;
-  box-shadow:0 1px 3px rgba(0,0,0,0.1);
+  padding:24px;
+  border-radius:16px;
   margin-bottom:20px;
+  box-shadow:0 4px 20px rgba(0,0,0,0.15);
+  border:3px solid #4338ca;
 }
 
-.header-content{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:16px;
-  flex-wrap:wrap;
+.header h1{
+  font-size:26px;
+  color:#4338ca;
+  margin-bottom:16px;
+  text-align:center;
 }
 
-h1{
-  font-size:22px;
-  color:var(--primary);
-  font-weight:700;
-  display:flex;
-  align-items:center;
-  gap:8px;
-}
-
-.stats{
+.stats-row{
   display:flex;
   gap:12px;
+  justify-content:center;
   flex-wrap:wrap;
 }
 
-.stat{
-  background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+.stat-box{
+  background:linear-gradient(135deg,#4338ca,#6366f1);
   color:white;
-  padding:8px 16px;
-  border-radius:8px;
-  font-size:13px;
-  font-weight:600;
-  display:flex;
-  align-items:center;
-  gap:6px;
+  padding:12px 24px;
+  border-radius:10px;
+  font-weight:700;
+  font-size:15px;
+  box-shadow:0 2px 10px rgba(67,56,202,0.3);
 }
 
-.main-grid{
+.grid-layout{
   display:grid;
-  grid-template-columns:1fr;
+  grid-template-columns:repeat(2,1fr);
   gap:20px;
-  align-items:start;
-}
-
-.sidebar{
-  display:flex;
-  flex-direction:column;
-  gap:16px;
-}
-
-.results-container{
-  max-height:400px;
-  overflow-y:auto;
-  padding-right:8px;
-}
-
-.results-container::-webkit-scrollbar{
-  width:8px;
-}
-
-.results-container::-webkit-scrollbar-track{
-  background:var(--light-bg);
-  border-radius:4px;
-}
-
-.results-container::-webkit-scrollbar-thumb{
-  background:var(--border);
-  border-radius:4px;
-}
-
-.results-container::-webkit-scrollbar-thumb:hover{
-  background:var(--gray);
 }
 
 .card{
   background:white;
-  border-radius:12px;
-  padding:20px;
-  box-shadow:0 1px 3px rgba(0,0,0,0.1);
-  border:2px solid var(--border);
+  padding:24px;
+  border-radius:16px;
+  box-shadow:0 4px 20px rgba(0,0,0,0.15);
+  border:3px solid #4338ca;
 }
 
 .card-title{
-  font-size:16px;
-  font-weight:700;
-  color:var(--dark);
-  margin-bottom:16px;
+  font-size:18px;
+  font-weight:800;
+  color:#4338ca;
+  margin-bottom:20px;
   padding-bottom:12px;
-  border-bottom:2px solid var(--border);
+  border-bottom:3px solid #e0e7ff;
   display:flex;
   align-items:center;
   gap:8px;
 }
 
-.search-group{
-  display:flex;
-  gap:8px;
-  margin-bottom:12px;
+.input-group{
+  margin-bottom:16px;
 }
 
-.search-group input{
-  flex:1;
-  padding:10px 14px;
-  border:2px solid var(--border);
-  border-radius:8px;
+.input-group label{
+  display:block;
   font-size:14px;
-  font-weight:500;
+  font-weight:700;
+  color:#1f2937;
+  margin-bottom:8px;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea{
+  width:100%;
+  padding:12px 16px;
+  border:2px solid #9ca3af;
+  border-radius:10px;
+  font-size:15px;
+  font-weight:600;
+  font-family:'Cairo',sans-serif;
   outline:none;
   transition:all 0.2s;
 }
 
-.search-group input:focus{
-  border-color:var(--primary);
-  box-shadow:0 0 0 3px rgba(59,130,246,0.1);
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus{
+  border-color:#4338ca;
+  box-shadow:0 0 0 3px rgba(67,56,202,0.1);
+}
+
+.input-group textarea{
+  min-height:90px;
+  resize:vertical;
+}
+
+.input-row{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
 }
 
 .btn{
-  padding:10px 16px;
+  width:100%;
+  padding:12px 20px;
   border:none;
-  border-radius:8px;
-  font-size:13px;
-  font-weight:600;
+  border-radius:10px;
+  font-size:14px;
+  font-weight:700;
   cursor:pointer;
   transition:all 0.2s;
-  display:inline-flex;
+  display:flex;
   align-items:center;
-  gap:6px;
   justify-content:center;
-  white-space:nowrap;
+  gap:8px;
+  font-family:'Cairo',sans-serif;
 }
 
 .btn-primary{
-  background:var(--primary);
+  background:linear-gradient(135deg,#4338ca,#6366f1);
   color:white;
+  box-shadow:0 2px 10px rgba(67,56,202,0.3);
 }
 
 .btn-primary:hover{
-  background:var(--primary-dark);
-  transform:translateY(-1px);
+  transform:translateY(-2px);
+  box-shadow:0 4px 15px rgba(67,56,202,0.4);
 }
 
 .btn-success{
-  background:var(--success);
+  background:linear-gradient(135deg,#10b981,#059669);
   color:white;
 }
 
 .btn-success:hover{
-  background:#059669;
-  transform:translateY(-1px);
+  transform:translateY(-2px);
 }
 
 .btn-danger{
-  background:var(--danger);
+  background:linear-gradient(135deg,#ef4444,#dc2626);
   color:white;
-}
-
-.btn-danger:hover{
-  background:#dc2626;
-  transform:translateY(-1px);
 }
 
 .btn-warning{
-  background:var(--warning);
+  background:linear-gradient(135deg,#f59e0b,#d97706);
   color:white;
-}
-
-.btn-warning:hover{
-  background:#d97706;
-  transform:translateY(-1px);
 }
 
 .btn-outline{
   background:white;
-  color:var(--gray);
-  border:2px solid var(--border);
+  color:#4338ca;
+  border:2px solid #4338ca;
 }
 
 .btn-outline:hover{
-  background:var(--light-bg);
-  border-color:var(--primary);
-  color:var(--primary);
+  background:#f5f3ff;
 }
 
-.btn-group{
+.btn-grid{
   display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:8px;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+  margin-top:16px;
 }
 
-.btn-full{
-  width:100%;
+.search-area{
+  display:flex;
+  gap:10px;
+  margin-bottom:16px;
 }
 
-.form-group{
-  margin-bottom:14px;
-}
-
-.form-group label{
-  display:block;
-  font-size:13px;
+.search-area input{
+  flex:1;
+  padding:12px 16px;
+  border:2px solid #9ca3af;
+  border-radius:10px;
+  font-size:15px;
   font-weight:600;
-  color:var(--dark);
-  margin-bottom:6px;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea{
-  width:100%;
-  padding:10px 12px;
-  border:2px solid var(--border);
-  border-radius:8px;
-  font-size:14px;
-  font-weight:500;
   outline:none;
-  transition:all 0.2s;
-  font-family:'Tajawal',sans-serif;
 }
 
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus{
-  border-color:var(--primary);
-  box-shadow:0 0 0 3px rgba(59,130,246,0.1);
+.search-area input:focus{
+  border-color:#4338ca;
 }
 
-.form-group textarea{
-  min-height:80px;
-  resize:vertical;
-}
-
-.form-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
-}
-
-.divider{
-  height:1px;
-  background:var(--border);
-  margin:16px 0;
-}
-
-.results-area{
-  min-height:300px;
+.results-box{
+  margin-top:20px;
+  padding:16px;
+  background:#f9fafb;
+  border-radius:10px;
+  border:2px solid #d1d5db;
+  max-height:400px;
+  overflow-y:auto;
 }
 
 .result-item{
-  background:var(--light-bg);
-  border:2px solid var(--border);
-  border-radius:8px;
+  background:white;
   padding:14px;
   margin-bottom:10px;
+  border-radius:8px;
+  border:2px solid #e5e7eb;
   cursor:pointer;
   transition:all 0.2s;
 }
 
 .result-item:hover{
-  border-color:var(--primary);
-  box-shadow:0 2px 8px rgba(59,130,246,0.1);
-  transform:translateX(-3px);
+  border-color:#4338ca;
+  transform:translateX(-4px);
+  box-shadow:0 2px 10px rgba(67,56,202,0.2);
 }
 
 .result-name{
-  font-size:15px;
+  font-size:16px;
   font-weight:700;
-  color:var(--dark);
+  color:#1f2937;
   margin-bottom:8px;
 }
 
-.result-info{
+.result-tags{
   display:flex;
-  gap:12px;
+  gap:8px;
   flex-wrap:wrap;
-  font-size:12px;
-  color:var(--gray);
+  font-size:13px;
 }
 
-.result-badge{
-  background:white;
-  padding:4px 10px;
+.tag{
+  padding:4px 12px;
   border-radius:6px;
   font-weight:600;
-  border:2px solid var(--border);
+  border:2px solid;
 }
 
-.badge-success{
-  color:var(--success);
-  border-color:var(--success);
-  background:rgba(16,185,129,0.1);
+.tag-success{
+  background:#d1fae5;
+  color:#065f46;
+  border-color:#10b981;
 }
 
-.badge-danger{
-  color:var(--danger);
-  border-color:var(--danger);
-  background:rgba(239,68,68,0.1);
+.tag-danger{
+  background:#fee2e2;
+  color:#991b1b;
+  border-color:#ef4444;
 }
 
-.empty-state{
+.tag-info{
+  background:#e0e7ff;
+  color:#3730a3;
+  border-color:#6366f1;
+}
+
+.empty-msg{
   text-align:center;
   padding:40px 20px;
-  color:var(--gray);
+  color:#6b7280;
 }
 
 .empty-icon{
   font-size:48px;
-  opacity:0.3;
   margin-bottom:12px;
+  opacity:0.5;
 }
 
 .modal{
   display:none;
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,0.5);
+  background:rgba(0,0,0,0.6);
+  backdrop-filter:blur(5px);
   z-index:1000;
-  padding:20px;
   align-items:center;
   justify-content:center;
-  backdrop-filter:blur(4px);
+  padding:20px;
 }
 
-.modal-content{
+.modal-box{
   background:white;
-  border-radius:12px;
-  padding:24px;
+  border-radius:16px;
+  padding:28px;
   max-width:500px;
   width:100%;
-  max-height:80vh;
-  overflow-y:auto;
   box-shadow:0 20px 60px rgba(0,0,0,0.3);
+  border:3px solid #4338ca;
 }
 
 .modal-header{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  margin-bottom:16px;
-  padding-bottom:12px;
-  border-bottom:2px solid var(--border);
+  margin-bottom:20px;
+  padding-bottom:16px;
+  border-bottom:3px solid #e0e7ff;
 }
 
 .modal-title{
-  font-size:18px;
-  font-weight:700;
-  color:var(--dark);
+  font-size:20px;
+  font-weight:800;
+  color:#4338ca;
 }
 
 .modal-close{
-  background:var(--danger);
+  background:#ef4444;
   color:white;
   border:none;
-  width:32px;
-  height:32px;
+  width:36px;
+  height:36px;
   border-radius:50%;
+  font-size:20px;
   cursor:pointer;
-  font-size:18px;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -413,92 +344,65 @@ h1{
 }
 
 .alert{
-  padding:14px;
-  border-radius:8px;
-  font-size:14px;
-  font-weight:500;
-  line-height:1.6;
+  padding:16px;
+  border-radius:10px;
+  font-size:15px;
+  font-weight:600;
+  line-height:1.7;
 }
 
 .alert-success{
-  background:rgba(16,185,129,0.1);
+  background:#d1fae5;
   color:#065f46;
-  border-right:3px solid var(--success);
+  border-right:4px solid #10b981;
 }
 
 .alert-danger{
-  background:rgba(239,68,68,0.1);
+  background:#fee2e2;
   color:#991b1b;
-  border-right:3px solid var(--danger);
+  border-right:4px solid #ef4444;
 }
 
 .alert-warning{
-  background:rgba(245,158,11,0.1);
+  background:#fef3c7;
   color:#92400e;
-  border-right:3px solid var(--warning);
+  border-right:4px solid #f59e0b;
 }
 
 .alert-info{
-  background:rgba(59,130,246,0.1);
+  background:#dbeafe;
   color:#1e40af;
-  border-right:3px solid var(--primary);
-}
-
-.section-divider{
-  margin:16px 0;
-  padding:8px 12px;
-  background:var(--light-bg);
-  border-radius:6px;
-  font-size:12px;
-  font-weight:600;
-  color:var(--gray);
-  text-transform:uppercase;
-  letter-spacing:0.5px;
-}
-
-@media (max-width:1024px){
-  .main-grid{
-    grid-template-columns:1fr;
-  }
+  border-right:4px solid #3b82f6;
 }
 
 @media (max-width:768px){
   body{
-    padding:8px;
+    padding:10px;
   }
   
-  h1{
-    font-size:18px;
+  .grid-layout{
+    grid-template-columns:1fr;
   }
   
-  .header-content{
+  .input-row{
+    grid-template-columns:1fr;
+  }
+  
+  .btn-grid{
+    grid-template-columns:1fr;
+  }
+  
+  .search-area{
     flex-direction:column;
-    align-items:stretch;
   }
   
-  .stats{
-    width:100%;
+  .header h1{
+    font-size:20px;
   }
   
-  .stat{
+  .stat-box{
     flex:1;
-    justify-content:center;
-  }
-  
-  .search-group{
-    flex-direction:column;
-  }
-  
-  .form-grid{
-    grid-template-columns:1fr;
-  }
-  
-  .btn-group{
-    grid-template-columns:1fr;
-  }
-  
-  .card{
-    padding:16px;
+    text-align:center;
   }
 }
 </style>
@@ -506,170 +410,138 @@ h1{
 <body>
 
 <div class="container">
-  <header>
-    <div class="header-content">
-      <h1>🗂️ برنامج إدارة الأسماء</h1>
-      <div class="stats">
-        <div class="stat">📊 الإجمالي: <span id="totalCount">0</span></div>
-        <div class="stat">✅ متوفر: <span id="availableCount">0</span></div>
-        <div class="stat">❌ ناقص: <span id="missingCount">0</span></div>
+  <!-- الهيدر -->
+  <div class="header">
+    <h1>🗂️ برنامج إدارة الأسماء</h1>
+    <div class="stats-row">
+      <div class="stat-box">📊 الإجمالي: <span id="totalCount">0</span></div>
+      <div class="stat-box">✅ متوفر: <span id="availableCount">0</span></div>
+      <div class="stat-box">❌ ناقص: <span id="missingCount">0</span></div>
+    </div>
+  </div>
+
+  <div class="grid-layout">
+    <!-- البحث والنتائج -->
+    <div class="card">
+      <div class="card-title">🔍 البحث والعرض</div>
+      
+      <div class="search-area">
+        <input type="text" id="searchInput" placeholder="ابحث عن اسم...">
+        <button class="btn btn-primary" id="searchBtn" style="width:auto;padding:12px 24px">بحث</button>
+      </div>
+      
+      <div class="btn-grid">
+        <button class="btn btn-outline" id="showAllBtn">📋 عرض الكل</button>
+        <button class="btn btn-outline" id="showMissingBtn">❌ الناقص</button>
+      </div>
+      
+      <div class="results-box" id="resultsBox">
+        <div class="empty-msg">
+          <div class="empty-icon">🔍</div>
+          <div style="font-weight:700">استخدم البحث أو عرض الكل</div>
+        </div>
       </div>
     </div>
-  </header>
 
-  <div class="main-grid">
-    <!-- Sidebar - العمليات -->
-    <div class="sidebar">
+    <!-- إدارة السجلات -->
+    <div class="card">
+      <div class="card-title">✏️ إدارة السجلات</div>
       
-      <!-- البحث -->
-      <div class="card">
-        <div class="card-title">🔍 البحث والعرض</div>
-        <div class="search-group">
-          <input type="text" id="searchInput" placeholder="ابحث عن اسم..." autocomplete="off">
-          <button class="btn btn-primary" id="searchBtn">بحث</button>
-        </div>
-        <div class="btn-group">
-          <button class="btn btn-outline btn-full" id="showAllBtn">📋 الكل</button>
-          <button class="btn btn-outline btn-full" id="showMissingBtn">❌ ناقص</button>
-        </div>
+      <div class="input-group">
+        <label>الاسم</label>
+        <input type="text" id="nameInput" placeholder="أدخل الاسم">
       </div>
-
-      <!-- إدارة السجلات -->
-      <div class="card">
-        <div class="card-title">✏️ إدارة السجلات</div>
-        
-        <div class="form-group">
-          <label>الاسم</label>
-          <input type="text" id="nameInput" placeholder="أدخل الاسم">
-        </div>
-        
-        <div class="form-grid">
-          <div class="form-group">
-            <label>الكمية</label>
-            <input type="number" id="qtyInput" placeholder="0" min="0">
-          </div>
-          <div class="form-group">
-            <label>الجنس</label>
-            <select id="genderInput">
-              <option value="">اختر</option>
-              <option value="ذكر">👦 ذكر</option>
-              <option value="أنثى">👧 أنثى</option>
-            </select>
-          </div>
-        </div>
-        
-        <div class="form-group">
-          <label>اللون</label>
-          <input type="text" id="colorInput" placeholder="اللون">
-        </div>
-        
-        <div class="form-group">
-          <label>ملاحظات</label>
-          <textarea id="noteInput" placeholder="ملاحظات إضافية..."></textarea>
-        </div>
-        
-        <div class="section-divider">العمليات</div>
-        
-        <div class="btn-group">
-          <button class="btn btn-success btn-full" id="addBtn">➕ إضافة</button>
-          <button class="btn btn-primary btn-full" id="updateBtn">✏️ تحديث</button>
-          <button class="btn btn-danger btn-full" id="deleteBtn">🗑️ حذف</button>
-          <button class="btn btn-outline btn-full" id="clearFormBtn">🧹 مسح</button>
-        </div>
-      </div>
-
-      <!-- عملية البيع -->
-      <div class="card">
-        <div class="card-title">🛒 عملية البيع</div>
-        
-        <div class="form-group">
-          <label>اسم المنتج</label>
-          <input type="text" id="sellNameInput" placeholder="الاسم">
-        </div>
-        
-        <div class="form-group">
+      
+      <div class="input-row">
+        <div class="input-group">
           <label>الكمية</label>
-          <input type="number" id="sellQtyInput" placeholder="0" min="1">
+          <input type="number" id="qtyInput" placeholder="0" min="0">
         </div>
-        
-        <div class="btn-group">
-          <button class="btn btn-warning btn-full" id="sellBtn">💰 بيع</button>
-          <button class="btn btn-outline btn-full" id="checkSellBtn">🔍 فحص</button>
-        </div>
-      </div>
-
-      <!-- النسخ الاحتياطي -->
-      <div class="card">
-        <div class="card-title">💾 النسخ الاحتياطي</div>
-        
-        <div class="btn-group">
-          <button class="btn btn-success btn-full" id="backupBtn">⬇️ تحميل</button>
-          <button class="btn btn-primary btn-full" id="restoreBtn">⬆️ استرداد</button>
-        </div>
-        
-        <div id="fileUploadArea" style="display:none;margin-top:12px;padding:20px;border:2px dashed var(--border);border-radius:8px;text-align:center;cursor:pointer;background:var(--light-bg)">
-          <div style="font-size:32px;margin-bottom:8px">📁</div>
-          <div style="font-size:13px;font-weight:600;color:var(--gray)">انقر لاختيار ملف CSV</div>
-          <input type="file" id="fileInput" accept=".csv" style="display:none">
+        <div class="input-group">
+          <label>الجنس</label>
+          <select id="genderInput">
+            <option value="">اختر</option>
+            <option value="ذكر">👦 ذكر</option>
+            <option value="أنثى">👧 أنثى</option>
+          </select>
         </div>
       </div>
       
+      <div class="input-group">
+        <label>اللون</label>
+        <input type="text" id="colorInput" placeholder="اللون">
+      </div>
+      
+      <div class="input-group">
+        <label>ملاحظات</label>
+        <textarea id="noteInput" placeholder="ملاحظات إضافية..."></textarea>
+      </div>
+      
+      <div class="btn-grid">
+        <button class="btn btn-success" id="addBtn">➕ إضافة</button>
+        <button class="btn btn-primary" id="updateBtn">✏️ تحديث</button>
+        <button class="btn btn-danger" id="deleteBtn">🗑️ حذف</button>
+        <button class="btn btn-outline" id="clearBtn">🧹 مسح</button>
+      </div>
+    </div>
+
+    <!-- عملية البيع -->
+    <div class="card">
+      <div class="card-title">🛒 عملية البيع</div>
+      
+      <div class="input-group">
+        <label>اسم المنتج</label>
+        <input type="text" id="sellName" placeholder="الاسم">
+      </div>
+      
+      <div class="input-group">
+        <label>الكمية</label>
+        <input type="number" id="sellQty" placeholder="0" min="1">
+      </div>
+      
+      <div class="btn-grid">
+        <button class="btn btn-warning" id="sellBtn">💰 بيع</button>
+        <button class="btn btn-outline" id="checkBtn">🔍 فحص</button>
+      </div>
+    </div>
+
+    <!-- النسخ الاحتياطي -->
+    <div class="card">
+      <div class="card-title">💾 النسخ الاحتياطي</div>
+      
+      <div class="btn-grid">
+        <button class="btn btn-success" id="backupBtn">⬇️ تحميل</button>
+        <button class="btn btn-primary" id="restoreBtn">⬆️ استرداد</button>
+      </div>
+      
+      <div id="uploadArea" style="display:none;margin-top:16px;padding:24px;border:3px dashed #9ca3af;border-radius:10px;text-align:center;cursor:pointer;background:#f9fafb">
+        <div style="font-size:40px;margin-bottom:8px">📁</div>
+        <div style="font-weight:700;color:#4b5563">انقر لاختيار ملف CSV</div>
+        <input type="file" id="fileInput" accept=".csv" style="display:none">
+      </div>
     </div>
   </div>
 </div>
 
 <!-- Modal -->
 <div id="modal" class="modal">
-  <div class="modal-content">
+  <div class="modal-box">
     <div class="modal-header">
-      <h3 class="modal-title" id="modalTitle">رسالة</h3>
-      <button class="modal-close" id="modalCloseBtn">×</button>
+      <div class="modal-title" id="modalTitle">رسالة</div>
+      <button class="modal-close" id="modalClose">×</button>
     </div>
     <div id="modalBody"></div>
   </div>
 </div>
 
 <script>
-const STORAGE_KEY = 'names_manager_db_v5';
-
-const elements = {
-  searchInput: document.getElementById('searchInput'),
-  searchBtn: document.getElementById('searchBtn'),
-  showAllBtn: document.getElementById('showAllBtn'),
-  showMissingBtn: document.getElementById('showMissingBtn'),
-  searchResults: document.getElementById('searchResults'),
-  backupBtn: document.getElementById('backupBtn'),
-  restoreBtn: document.getElementById('restoreBtn'),
-  fileUploadArea: document.getElementById('fileUploadArea'),
-  fileInput: document.getElementById('fileInput'),
-  nameInput: document.getElementById('nameInput'),
-  qtyInput: document.getElementById('qtyInput'),
-  genderInput: document.getElementById('genderInput'),
-  colorInput: document.getElementById('colorInput'),
-  noteInput: document.getElementById('noteInput'),
-  addBtn: document.getElementById('addBtn'),
-  updateBtn: document.getElementById('updateBtn'),
-  deleteBtn: document.getElementById('deleteBtn'),
-  clearFormBtn: document.getElementById('clearFormBtn'),
-  sellNameInput: document.getElementById('sellNameInput'),
-  sellQtyInput: document.getElementById('sellQtyInput'),
-  sellBtn: document.getElementById('sellBtn'),
-  checkSellBtn: document.getElementById('checkSellBtn'),
-  totalCount: document.getElementById('totalCount'),
-  availableCount: document.getElementById('availableCount'),
-  missingCount: document.getElementById('missingCount'),
-  modal: document.getElementById('modal'),
-  modalTitle: document.getElementById('modalTitle'),
-  modalBody: document.getElementById('modalBody'),
-  modalCloseBtn: document.getElementById('modalCloseBtn')
-};
+const STORAGE_KEY = 'names_db_v6';
 
 let db = [];
 try {
   const stored = localStorage.getItem(STORAGE_KEY);
   db = stored ? JSON.parse(stored) : [];
 } catch(e) {
-  console.error('خطأ في تحميل البيانات:', e);
   db = [];
 }
 
@@ -691,118 +563,253 @@ function saveDB() {
 }
 
 function updateStats() {
-  elements.totalCount.textContent = db.length;
-  elements.availableCount.textContent = db.filter(function(item) {
-    return item.qty > 0;
-  }).length;
-  elements.missingCount.textContent = db.filter(function(item) {
-    return item.qty === 0;
-  }).length;
+  document.getElementById('totalCount').textContent = db.length;
+  document.getElementById('availableCount').textContent = db.filter(i => i.qty > 0).length;
+  document.getElementById('missingCount').textContent = db.filter(i => i.qty === 0).length;
 }
 
-function displayResults(items, title) {
+function showResults(items, title) {
+  const box = document.getElementById('resultsBox');
+  
   if(items.length === 0) {
-    elements.searchResults.innerHTML = '<div class="empty-state" style="padding:20px"><div class="empty-icon" style="font-size:32px">❌</div><div style="font-weight:600;font-size:13px">لا توجد نتائج</div></div>';
+    box.innerHTML = '<div class="empty-msg"><div class="empty-icon">❌</div><div style="font-weight:700">لا توجد نتائج</div></div>';
     return;
   }
   
   let html = '';
   if(title) {
-    html += '<div style="margin-bottom:12px;font-weight:700;color:var(--primary);font-size:14px">' + title + '</div>';
+    html += '<div style="font-weight:800;color:#4338ca;margin-bottom:12px;font-size:15px">' + title + '</div>';
   }
   
-  items.forEach(function(item, index) {
-    const qtyBadge = item.qty === 0 ? 
-      '<span class="result-badge badge-danger">❌ ناقص</span>' : 
-      '<span class="result-badge badge-success">✅ ' + item.qty + '</span>';
+  items.forEach(function(item, idx) {
+    const qtyTag = item.qty === 0 ? 
+      '<span class="tag tag-danger">❌ ناقص</span>' : 
+      '<span class="tag tag-success">✅ ' + item.qty + '</span>';
     
     html += '<div class="result-item" onclick="fillForm(\'' + item.name.replace(/'/g, "\\'") + '\')">';
-    html += '<div class="result-name">' + (index + 1) + '. ' + item.name + '</div>';
-    html += '<div class="result-info">';
-    html += qtyBadge;
-    html += '<span class="result-badge">⚧ ' + (item.gender || 'غير محدد') + '</span>';
-    html += '<span class="result-badge">🎨 ' + (item.color || '-') + '</span>';
+    html += '<div class="result-name">' + (idx + 1) + '. ' + item.name + '</div>';
+    html += '<div class="result-tags">';
+    html += qtyTag;
+    html += '<span class="tag tag-info">⚧ ' + (item.gender || '-') + '</span>';
+    html += '<span class="tag tag-info">🎨 ' + (item.color || '-') + '</span>';
     if(item.note) {
-      html += '<span class="result-badge" style="grid-column:1/-1">📝 ' + item.note + '</span>';
+      html += '<span class="tag tag-info">📝 ' + item.note + '</span>';
     }
     html += '</div></div>';
   });
   
-  elements.searchResults.innerHTML = html;
+  box.innerHTML = html;
 }
 
 function fillForm(name) {
-  const item = db.find(function(i) {
-    return i.name.toLowerCase() === name.toLowerCase();
-  });
-  
+  const item = db.find(i => i.name.toLowerCase() === name.toLowerCase());
   if(item) {
-    elements.nameInput.value = item.name;
-    elements.qtyInput.value = item.qty;
-    elements.genderInput.value = item.gender || '';
-    elements.colorInput.value = item.color || '';
-    elements.noteInput.value = item.note || '';
-    showModal('✅ تم', 'تم تعبئة بيانات: ' + item.name, 'success');
+    document.getElementById('nameInput').value = item.name;
+    document.getElementById('qtyInput').value = item.qty;
+    document.getElementById('genderInput').value = item.gender || '';
+    document.getElementById('colorInput').value = item.color || '';
+    document.getElementById('noteInput').value = item.note || '';
+    showModal('✅ تم', 'تم تعبئة: ' + item.name, 'success');
   }
 }
 
-function showModal(title, message, type) {
+function showModal(title, msg, type) {
   type = type || 'info';
-  elements.modalTitle.textContent = title;
+  document.getElementById('modalTitle').textContent = title;
   
-  let alertClass = 'alert-info';
-  if(type === 'success') alertClass = 'alert-success';
-  if(type === 'error') alertClass = 'alert-danger';
-  if(type === 'warning') alertClass = 'alert-warning';
+  let cls = 'alert-info';
+  if(type === 'success') cls = 'alert-success';
+  if(type === 'error') cls = 'alert-danger';
+  if(type === 'warning') cls = 'alert-warning';
   
-  elements.modalBody.innerHTML = '<div class="alert ' + alertClass + '">' + message + '</div>';
-  elements.modal.style.display = 'flex';
+  document.getElementById('modalBody').innerHTML = '<div class="alert ' + cls + '">' + msg + '</div>';
+  document.getElementById('modal').style.display = 'flex';
 }
 
 function closeModal() {
-  elements.modal.style.display = 'none';
+  document.getElementById('modal').style.display = 'none';
 }
 
-elements.searchBtn.addEventListener('click', function() {
-  const query = elements.searchInput.value.trim().toLowerCase();
-  if(!query) {
-    showModal('⚠️ تنبيه', 'الرجاء إدخال نص للبحث', 'warning');
+// البحث
+document.getElementById('searchBtn').addEventListener('click', function() {
+  const q = document.getElementById('searchInput').value.trim().toLowerCase();
+  if(!q) {
+    showModal('⚠️ تنبيه', 'أدخل نص للبحث', 'warning');
     return;
   }
   
-  const results = db.filter(function(item) {
-    return item.name.toLowerCase().includes(query);
-  });
+  const results = db.filter(i => i.name.toLowerCase().includes(q));
+  showResults(results, 'نتائج: "' + document.getElementById('searchInput').value + '" (' + results.length + ')');
+});
+
+document.getElementById('searchInput').addEventListener('keypress', function(e) {
+  if(e.key === 'Enter') document.getElementById('searchBtn').click();
+});
+
+document.getElementById('showAllBtn').addEventListener('click', function() {
+  showResults(db, '📋 جميع السجلات (' + db.length + ')');
+});
+
+document.getElementById('showMissingBtn').addEventListener('click', function() {
+  const missing = db.filter(i => i.qty === 0);
+  showResults(missing, '❌ الناقص (' + missing.length + ')');
+});
+
+// إضافة
+document.getElementById('addBtn').addEventListener('click', function() {
+  const name = document.getElementById('nameInput').value.trim();
+  const gender = document.getElementById('genderInput').value;
   
-  displayResults(results, 'نتائج: "' + elements.searchInput.value + '"');
-});
-
-elements.searchInput.addEventListener('keypress', function(e) {
-  if(e.key === 'Enter') {
-    elements.searchBtn.click();
+  if(!name) {
+    showModal('⚠️ تنبيه', 'أدخل الاسم', 'warning');
+    return;
   }
+  if(!gender) {
+    showModal('⚠️ تنبيه', 'اختر الجنس', 'warning');
+    return;
+  }
+  if(db.some(i => i.name.toLowerCase() === name.toLowerCase())) {
+    showModal('⚠️ موجود', 'الاسم موجود مسبقاً', 'warning');
+    return;
+  }
+  
+  const qty = parseInt(document.getElementById('qtyInput').value) || 0;
+  const color = document.getElementById('colorInput').value.trim();
+  const note = document.getElementById('noteInput').value.trim();
+  
+  db.push({name, qty, gender, color, note});
+  saveDB();
+  showModal('✅ نجح', 'تم إضافة: ' + name, 'success');
+  document.getElementById('clearBtn').click();
+  showResults(db, '📋 جميع السجلات');
 });
 
-elements.showAllBtn.addEventListener('click', function() {
-  displayResults(db, '📋 جميع السجلات (' + db.length + ')');
+// تحديث
+document.getElementById('updateBtn').addEventListener('click', function() {
+  const name = document.getElementById('nameInput').value.trim();
+  if(!name) {
+    showModal('⚠️ تنبيه', 'أدخل الاسم', 'warning');
+    return;
+  }
+  
+  const idx = db.findIndex(i => i.name.toLowerCase() === name.toLowerCase());
+  if(idx === -1) {
+    showModal('⚠️ غير موجود', 'الاسم غير موجود', 'error');
+    return;
+  }
+  
+  const gender = document.getElementById('genderInput').value;
+  if(!gender) {
+    showModal('⚠️ تنبيه', 'اختر الجنس', 'warning');
+    return;
+  }
+  
+  const qty = parseInt(document.getElementById('qtyInput').value) || 0;
+  const color = document.getElementById('colorInput').value.trim();
+  const note = document.getElementById('noteInput').value.trim();
+  
+  db[idx] = {name, qty, gender, color, note};
+  saveDB();
+  showModal('✅ نجح', 'تم تحديث: ' + name, 'success');
+  showResults(db, '📋 جميع السجلات');
 });
 
-elements.showMissingBtn.addEventListener('click', function() {
-  const missing = db.filter(function(item) {
-    return item.qty === 0;
-  });
-  displayResults(missing, '❌ السجلات الناقصة (' + missing.length + ')');
+// حذف
+document.getElementById('deleteBtn').addEventListener('click', function() {
+  const name = document.getElementById('nameInput').value.trim();
+  if(!name) {
+    showModal('⚠️ تنبيه', 'أدخل الاسم', 'warning');
+    return;
+  }
+  
+  const idx = db.findIndex(i => i.name.toLowerCase() === name.toLowerCase());
+  if(idx === -1) {
+    showModal('⚠️ غير موجود', 'الاسم غير موجود', 'error');
+    return;
+  }
+  
+  if(!confirm('حذف "' + name + '"؟')) return;
+  
+  db.splice(idx, 1);
+  saveDB();
+  showModal('✅ نجح', 'تم الحذف', 'success');
+  document.getElementById('clearBtn').click();
+  showResults(db, '📋 جميع السجلات');
 });
 
-elements.backupBtn.addEventListener('click', function() {
+// مسح
+document.getElementById('clearBtn').addEventListener('click', function() {
+  document.getElementById('nameInput').value = '';
+  document.getElementById('qtyInput').value = '';
+  document.getElementById('genderInput').value = '';
+  document.getElementById('colorInput').value = '';
+  document.getElementById('noteInput').value = '';
+});
+
+// البيع
+document.getElementById('checkBtn').addEventListener('click', function() {
+  const name = document.getElementById('sellName').value.trim();
+  if(!name) {
+    showModal('⚠️ تنبيه', 'أدخل اسم المنتج', 'warning');
+    return;
+  }
+  
+  const item = db.find(i => i.name.toLowerCase() === name.toLowerCase());
+  if(!item) {
+    showModal('⚠️ غير موجود', 'المنتج غير موجود', 'error');
+    return;
+  }
+  
+  const status = item.qty === 0 ? 
+    '❌ <strong style="color:#ef4444">غير متوفر</strong>' : 
+    '✅ <strong style="color:#10b981">متوفر (' + item.qty + ')</strong>';
+  
+  showModal('📦 المخزون', '<strong>' + item.name + '</strong><br><br>' + status, 'info');
+});
+
+document.getElementById('sellBtn').addEventListener('click', function() {
+  const name = document.getElementById('sellName').value.trim();
+  const qty = parseInt(document.getElementById('sellQty').value) || 0;
+  
+  if(!name) {
+    showModal('⚠️ تنبيه', 'أدخل اسم المنتج', 'warning');
+    return;
+  }
+  if(qty <= 0) {
+    showModal('⚠️ تنبيه', 'أدخل كمية صحيحة', 'warning');
+    return;
+  }
+  
+  const idx = db.findIndex(i => i.name.toLowerCase() === name.toLowerCase());
+  if(idx === -1) {
+    showModal('⚠️ غير موجود', 'المنتج غير موجود', 'error');
+    return;
+  }
+  if(db[idx].qty < qty) {
+    showModal('⚠️ كمية غير كافية', 'المتاح: ' + db[idx].qty + '<br>المطلوب: ' + qty, 'error');
+    return;
+  }
+  
+  if(!confirm('بيع ' + qty + ' من "' + name + '"؟')) return;
+  
+  db[idx].qty -= qty;
+  saveDB();
+  showModal('✅ تم البيع', 'المباع: ' + qty + '<br>المتبقي: ' + db[idx].qty, 'success');
+  
+  document.getElementById('sellName').value = '';
+  document.getElementById('sellQty').value = '';
+});
+
+// النسخ الاحتياطي
+document.getElementById('backupBtn').addEventListener('click', function() {
   if(db.length === 0) {
-    showModal('⚠️ تنبيه', 'لا توجد بيانات للنسخ الاحتياطي', 'warning');
+    showModal('⚠️ تنبيه', 'لا توجد بيانات', 'warning');
     return;
   }
   
   let csv = '\ufeffالاسم,الكمية,الجنس,اللون,ملاحظات\n';
-  db.forEach(function(item) {
-    csv += item.name + ',' + item.qty + ',' + (item.gender || '') + ',' + (item.color || '') + ',"' + (item.note || '') + '"\n';
+  db.forEach(function(i) {
+    csv += i.name + ',' + i.qty + ',' + (i.gender || '') + ',' + (i.color || '') + ',"' + (i.note || '') + '"\n';
   });
   
   const blob = new Blob([csv], {type: 'text/csv;charset=utf-8'});
@@ -810,29 +817,27 @@ elements.backupBtn.addEventListener('click', function() {
   const a = document.createElement('a');
   a.href = url;
   a.download = 'نسخة_احتياطية_' + new Date().toISOString().split('T')[0] + '.csv';
-  document.body.appendChild(a);
   a.click();
-  document.body.removeChild(a);
   URL.revokeObjectURL(url);
   
   showModal('✅ نجح', 'تم تحميل ' + db.length + ' سجل', 'success');
 });
 
-elements.restoreBtn.addEventListener('click', function() {
-  elements.fileUploadArea.style.display = 'block';
-  elements.fileInput.click();
+document.getElementById('restoreBtn').addEventListener('click', function() {
+  document.getElementById('uploadArea').style.display = 'block';
+  document.getElementById('fileInput').click();
 });
 
-elements.fileUploadArea.addEventListener('click', function() {
-  elements.fileInput.click();
+document.getElementById('uploadArea').addEventListener('click', function() {
+  document.getElementById('fileInput').click();
 });
 
-elements.fileInput.addEventListener('change', function(e) {
+document.getElementById('fileInput').addEventListener('change', function(e) {
   const file = e.target.files[0];
   if(!file) return;
   
   if(!file.name.endsWith('.csv')) {
-    showModal('⚠️ خطأ', 'يرجى اختيار ملف CSV فقط', 'error');
+    showModal('⚠️ خطأ', 'اختر ملف CSV فقط', 'error');
     return;
   }
   
@@ -840,12 +845,10 @@ elements.fileInput.addEventListener('change', function(e) {
   reader.onload = function(event) {
     try {
       const content = event.target.result;
-      const lines = content.split('\n').filter(function(line) {
-        return line.trim();
-      });
+      const lines = content.split('\n').filter(l => l.trim());
       
       if(lines.length < 2) {
-        showModal('⚠️ خطأ', 'الملف فارغ أو بتنسيق غير صحيح', 'error');
+        showModal('⚠️ خطأ', 'الملف فارغ', 'error');
         return;
       }
       
@@ -860,21 +863,21 @@ elements.fileInput.addEventListener('change', function(e) {
           const note = parts[4] ? parts[4].replace(/^"|"$/g, '').trim() : '';
           
           if(name) {
-            newDB.push({name: name, qty: qty, gender: gender, color: color, note: note});
+            newDB.push({name, qty, gender, color, note});
           }
         }
       }
       
       if(newDB.length === 0) {
-        showModal('⚠️ خطأ', 'لم يتم العثور على بيانات صالحة', 'error');
+        showModal('⚠️ خطأ', 'لم يتم العثور على بيانات', 'error');
         return;
       }
       
-      if(confirm('استبدال ' + db.length + ' سجل بـ ' + newDB.length + ' سجل من الملف؟')) {
+      if(confirm('استبدال ' + db.length + ' سجل بـ ' + newDB.length + ' سجل؟')) {
         db = newDB;
         saveDB();
-        displayResults(db, '✅ تم الاسترداد');
-        elements.fileUploadArea.style.display = 'none';
+        showResults(db, '✅ تم الاسترداد');
+        document.getElementById('uploadArea').style.display = 'none';
         showModal('✅ نجح', 'تم استرداد ' + newDB.length + ' سجل', 'success');
       }
     } catch(error) {
@@ -883,208 +886,33 @@ elements.fileInput.addEventListener('change', function(e) {
   };
   
   reader.readAsText(file, 'UTF-8');
-  elements.fileInput.value = '';
+  e.target.value = '';
 });
 
-elements.clearFormBtn.addEventListener('click', function() {
-  elements.nameInput.value = '';
-  elements.qtyInput.value = '';
-  elements.genderInput.value = '';
-  elements.colorInput.value = '';
-  elements.noteInput.value = '';
+// إغلاق Modal
+document.getElementById('modalClose').addEventListener('click', closeModal);
+document.getElementById('modal').addEventListener('click', function(e) {
+  if(e.target === document.getElementById('modal')) closeModal();
 });
 
-elements.addBtn.addEventListener('click', function() {
-  const name = elements.nameInput.value.trim();
-  const gender = elements.genderInput.value;
-  
-  if(!name) {
-    showModal('⚠️ تنبيه', 'الرجاء إدخال الاسم', 'warning');
-    return;
-  }
-  
-  if(!gender) {
-    showModal('⚠️ تنبيه', 'الرجاء اختيار الجنس', 'warning');
-    return;
-  }
-  
-  const exists = db.some(function(item) {
-    return item.name.toLowerCase() === name.toLowerCase();
-  });
-  
-  if(exists) {
-    showModal('⚠️ موجود', 'الاسم "' + name + '" موجود مسبقاً', 'warning');
-    return;
-  }
-  
-  const qty = parseInt(elements.qtyInput.value) || 0;
-  const color = elements.colorInput.value.trim();
-  const note = elements.noteInput.value.trim();
-  
-  db.push({name: name, qty: qty, gender: gender, color: color, note: note});
-  saveDB();
-  
-  showModal('✅ تم', 'تم إضافة: ' + name, 'success');
-  elements.clearFormBtn.click();
-  displayResults(db, '📋 جميع السجلات');
-});
-
-elements.updateBtn.addEventListener('click', function() {
-  const name = elements.nameInput.value.trim();
-  
-  if(!name) {
-    showModal('⚠️ تنبيه', 'الرجاء إدخال الاسم', 'warning');
-    return;
-  }
-  
-  const index = db.findIndex(function(item) {
-    return item.name.toLowerCase() === name.toLowerCase();
-  });
-  
-  if(index === -1) {
-    showModal('⚠️ غير موجود', 'الاسم "' + name + '" غير موجود', 'error');
-    return;
-  }
-  
-  const gender = elements.genderInput.value;
-  if(!gender) {
-    showModal('⚠️ تنبيه', 'الرجاء اختيار الجنس', 'warning');
-    return;
-  }
-  
-  const qty = parseInt(elements.qtyInput.value) || 0;
-  const color = elements.colorInput.value.trim();
-  const note = elements.noteInput.value.trim();
-  
-  db[index] = {name: name, qty: qty, gender: gender, color: color, note: note};
-  saveDB();
-  
-  showModal('✅ تم', 'تم تحديث: ' + name, 'success');
-  displayResults(db, '📋 جميع السجلات');
-});
-
-elements.deleteBtn.addEventListener('click', function() {
-  const name = elements.nameInput.value.trim();
-  
-  if(!name) {
-    showModal('⚠️ تنبيه', 'الرجاء إدخال الاسم', 'warning');
-    return;
-  }
-  
-  const index = db.findIndex(function(item) {
-    return item.name.toLowerCase() === name.toLowerCase();
-  });
-  
-  if(index === -1) {
-    showModal('⚠️ غير موجود', 'الاسم "' + name + '" غير موجود', 'error');
-    return;
-  }
-  
-  if(!confirm('حذف "' + name + '"؟')) {
-    return;
-  }
-  
-  db.splice(index, 1);
-  saveDB();
-  
-  showModal('✅ تم', 'تم حذف: ' + name, 'success');
-  elements.clearFormBtn.click();
-  displayResults(db, '📋 جميع السجلات');
-});
-
-elements.checkSellBtn.addEventListener('click', function() {
-  const name = elements.sellNameInput.value.trim();
-  
-  if(!name) {
-    showModal('⚠️ تنبيه', 'الرجاء إدخال اسم المنتج', 'warning');
-    return;
-  }
-  
-  const item = db.find(function(i) {
-    return i.name.toLowerCase() === name.toLowerCase();
-  });
-  
-  if(!item) {
-    showModal('⚠️ غير موجود', 'المنتج "' + name + '" غير موجود', 'error');
-    return;
-  }
-  
-  const status = item.qty === 0 ? 
-    '❌ <strong style="color:var(--danger)">غير متوفر</strong>' : 
-    '✅ <strong style="color:var(--success)">متوفر (' + item.qty + ')</strong>';
-  
-  showModal('📦 المخزون', '<strong>' + item.name + '</strong><br><br>' + status + '<br>الجنس: ' + (item.gender || '-') + '<br>اللون: ' + (item.color || '-'), 'info');
-});
-
-elements.sellBtn.addEventListener('click', function() {
-  const name = elements.sellNameInput.value.trim();
-  const sellQty = parseInt(elements.sellQtyInput.value) || 0;
-  
-  if(!name) {
-    showModal('⚠️ تنبيه', 'الرجاء إدخال اسم المنتج', 'warning');
-    return;
-  }
-  
-  if(sellQty <= 0) {
-    showModal('⚠️ تنبيه', 'الرجاء إدخال كمية صحيحة', 'warning');
-    return;
-  }
-  
-  const index = db.findIndex(function(item) {
-    return item.name.toLowerCase() === name.toLowerCase();
-  });
-  
-  if(index === -1) {
-    showModal('⚠️ غير موجود', 'المنتج "' + name + '" غير موجود', 'error');
-    return;
-  }
-  
-  if(db[index].qty < sellQty) {
-    showModal('⚠️ كمية غير كافية', 'المتاح: ' + db[index].qty + '<br>المطلوب: ' + sellQty, 'error');
-    return;
-  }
-  
-  if(!confirm('بيع ' + sellQty + ' من "' + name + '"؟')) {
-    return;
-  }
-  
-  db[index].qty -= sellQty;
-  saveDB();
-  
-  showModal('✅ تم البيع', '<strong>' + name + '</strong><br><br>المباع: ' + sellQty + '<br>المتبقي: ' + db[index].qty, 'success');
-  
-  elements.sellNameInput.value = '';
-  elements.sellQtyInput.value = '';
-});
-
-elements.modalCloseBtn.addEventListener('click', closeModal);
-
-elements.modal.addEventListener('click', function(e) {
-  if(e.target === elements.modal) {
-    closeModal();
-  }
-});
-
+// اختصارات لوحة المفاتيح
 document.addEventListener('keydown', function(e) {
-  if(e.key === 'Escape') {
-    closeModal();
-  }
-  
+  if(e.key === 'Escape') closeModal();
   if(e.ctrlKey && e.key === 'f') {
     e.preventDefault();
-    elements.searchInput.focus();
+    document.getElementById('searchInput').focus();
   }
-  
   if(e.ctrlKey && e.key === 's') {
     e.preventDefault();
-    elements.backupBtn.click();
+    document.getElementById('backupBtn').click();
   }
 });
 
+// تهيئة
 updateStats();
 
 console.log('✅ البرنامج جاهز');
-console.log('📊 السجلات: ' + db.length);
+console.log('📊 عدد السجلات: ' + db.length);
 </script>
 </body>
 </html>
