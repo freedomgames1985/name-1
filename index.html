@@ -17,7 +17,7 @@
   --dark:#1f2937;
   --gray:#6b7280;
   --light-bg:#f9fafb;
-  --border:#e5e7eb;
+  --border:#9ca3af;
 }
 
 *{
@@ -84,7 +84,7 @@ h1{
 
 .main-grid{
   display:grid;
-  grid-template-columns:350px 1fr;
+  grid-template-columns:1fr;
   gap:20px;
   align-items:start;
 }
@@ -95,11 +95,36 @@ h1{
   gap:16px;
 }
 
+.results-container{
+  max-height:400px;
+  overflow-y:auto;
+  padding-right:8px;
+}
+
+.results-container::-webkit-scrollbar{
+  width:8px;
+}
+
+.results-container::-webkit-scrollbar-track{
+  background:var(--light-bg);
+  border-radius:4px;
+}
+
+.results-container::-webkit-scrollbar-thumb{
+  background:var(--border);
+  border-radius:4px;
+}
+
+.results-container::-webkit-scrollbar-thumb:hover{
+  background:var(--gray);
+}
+
 .card{
   background:white;
   border-radius:12px;
   padding:20px;
   box-shadow:0 1px 3px rgba(0,0,0,0.1);
+  border:2px solid var(--border);
 }
 
 .card-title{
@@ -123,7 +148,7 @@ h1{
 .search-group input{
   flex:1;
   padding:10px 14px;
-  border:1px solid var(--border);
+  border:2px solid var(--border);
   border-radius:8px;
   font-size:14px;
   font-weight:500;
@@ -194,7 +219,7 @@ h1{
 .btn-outline{
   background:white;
   color:var(--gray);
-  border:1px solid var(--border);
+  border:2px solid var(--border);
 }
 
 .btn-outline:hover{
@@ -230,7 +255,7 @@ h1{
 .form-group textarea{
   width:100%;
   padding:10px 12px;
-  border:1px solid var(--border);
+  border:2px solid var(--border);
   border-radius:8px;
   font-size:14px;
   font-weight:500;
@@ -269,7 +294,7 @@ h1{
 
 .result-item{
   background:var(--light-bg);
-  border:1px solid var(--border);
+  border:2px solid var(--border);
   border-radius:8px;
   padding:14px;
   margin-bottom:10px;
@@ -303,7 +328,7 @@ h1{
   padding:4px 10px;
   border-radius:6px;
   font-weight:600;
-  border:1px solid var(--border);
+  border:2px solid var(--border);
 }
 
 .badge-success{
@@ -434,14 +459,6 @@ h1{
 @media (max-width:1024px){
   .main-grid{
     grid-template-columns:1fr;
-  }
-  
-  .sidebar{
-    order:2;
-  }
-  
-  .results-area{
-    order:1;
   }
 }
 
@@ -598,18 +615,6 @@ h1{
       </div>
       
     </div>
-
-    <!-- النتائج -->
-    <div class="card results-area">
-      <div class="card-title">📊 النتائج</div>
-      <div id="searchResults">
-        <div class="empty-state">
-          <div class="empty-icon">🔍</div>
-          <div style="font-weight:600">استخدم البحث أو اضغط "الكل" لعرض السجلات</div>
-        </div>
-      </div>
-    </div>
-    
   </div>
 </div>
 
@@ -697,13 +702,13 @@ function updateStats() {
 
 function displayResults(items, title) {
   if(items.length === 0) {
-    elements.searchResults.innerHTML = '<div class="empty-state"><div class="empty-icon">❌</div><div style="font-weight:600">لا توجد نتائج</div></div>';
+    elements.searchResults.innerHTML = '<div class="empty-state" style="padding:20px"><div class="empty-icon" style="font-size:32px">❌</div><div style="font-weight:600;font-size:13px">لا توجد نتائج</div></div>';
     return;
   }
   
   let html = '';
   if(title) {
-    html += '<div style="margin-bottom:16px;font-weight:700;color:var(--primary);font-size:15px">' + title + '</div>';
+    html += '<div style="margin-bottom:12px;font-weight:700;color:var(--primary);font-size:14px">' + title + '</div>';
   }
   
   items.forEach(function(item, index) {
@@ -718,7 +723,7 @@ function displayResults(items, title) {
     html += '<span class="result-badge">⚧ ' + (item.gender || 'غير محدد') + '</span>';
     html += '<span class="result-badge">🎨 ' + (item.color || '-') + '</span>';
     if(item.note) {
-      html += '<span class="result-badge">📝 ' + item.note + '</span>';
+      html += '<span class="result-badge" style="grid-column:1/-1">📝 ' + item.note + '</span>';
     }
     html += '</div></div>';
   });
